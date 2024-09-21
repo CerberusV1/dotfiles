@@ -1,3 +1,13 @@
+#
+#            _              
+#    _______| |__  _ __ ___ 
+#   |_  / __| '_ \| '__/ __|
+#  _ / /\__ \ | | | | | (__ 
+# (_)___|___/_| |_|_|  \___|
+#
+# by cerberus
+# ----------------------------------------------------- 
+
 # Set the directory we want to store zinit and plugins
 # for documentation see https://github.com/zdharma-continuum/zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
