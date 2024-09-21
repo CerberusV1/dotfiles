@@ -73,4 +73,9 @@ alias yayin='yay -S'
 alias update='yay -Syu && sudo flatpak update'
 alias mv='mv -i'
 alias rm='rm -i'
+alias gadd='git add'
+alias gcom='git commit -m'
+alias gp='git push'
+alias gfet='git fetch'
+
 
