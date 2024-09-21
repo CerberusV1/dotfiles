@@ -77,5 +77,6 @@ alias gadd='git add'
 alias gcom='git commit -m'
 alias gp='git push'
 alias gfet='git fetch'
+alias tree='tree -C'
 
 
