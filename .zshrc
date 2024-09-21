@@ -71,4 +71,6 @@ alias h='cd ~'
 alias yayup='yay -Syu'
 alias yayin='yay -S'
 alias update='yay -Syu && sudo flatpak update'
+alias mv='mv -i'
+alias rm='rm -i'
 
