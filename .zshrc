@@ -6,6 +6,10 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
+# Import aliases
+[[ -f ~/.aliases ]] && source ~/.aliases || echo -e "\e[31mWarning: ~/.aliases cannot be found!\e[0m"
+
+
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
@@ -60,23 +64,6 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 
-# Aliases
-alias ls='ls -hl --color'
-alias lsa='ls -ahl --color'
-alias pacinst='sudo pacman -S'
-alias pacup='sudo pacman -Syu'
-alias deinst='yay -Rns'
-alias ..='cd ..'
-alias h='cd ~'
-alias yayup='yay -Syu'
-alias yayin='yay -S'
-alias update='yay -Syu && sudo flatpak update'
-alias mv='mv -i'
-alias rm='rm -i'
-alias gadd='git add'
-alias gcom='git commit -m'
-alias gp='git push'
-alias gfet='git fetch'
-alias tree='tree -C'
+
 
 
