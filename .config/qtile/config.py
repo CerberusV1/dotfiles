@@ -4,14 +4,14 @@
 # | |_| || |  | || |___| |___  | |__| (_) | | | |  _| | (_| | 
 #  \__\_\|_| |___|_____|_____|  \____\___/|_| |_|_| |_|\__, | 
 #                                                      |___/ 
-#by cerberus
+# by cerberus
 # --------------------------------------------------------
 #
 
 # --------------------------------------------------------
 # Imports
 # --------------------------------------------------------
-
+# TODO:remove imports: bar
 from libqtile import bar, layout, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -517,7 +517,6 @@ wmname = "Qtile"
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
 # this string if your java app doesn't work correctly. We may as well just lie
 # and say that we're a working one by default.
-#leider behalten auch mit dieser configuration die icons einen transperenten hintergrund
 # --------------------------------------------------------
 
 # HOOK startup
