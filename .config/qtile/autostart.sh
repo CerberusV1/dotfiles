@@ -29,21 +29,23 @@ dunst &
 # Autostart Apps
 # -----------------------------------------------------
 
-# Load flameshot
+# Start flameshot
 flameshot &
 
-# Load bitwarden
+# Start bitwarden in systray
 bitwarden-desktop &
 
 # Load discord
 discord &
 
-# Load firefox
+# Start firefox
 firefox --new-instance &
 
-# Load steam in systray
+# Start steam in systray
 steam -silent &
 
+# Start YTM
+youtube-music &
 
 
 
