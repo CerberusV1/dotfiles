@@ -11,15 +11,27 @@
 # --------------------------------------------------------
 # Imports
 # --------------------------------------------------------
-# TODO:remove imports: bar
-from libqtile import bar, layout, qtile, hook
+
+from libqtile import bar, qtile, hook, layout
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 
+# from modules.layouts import layouts, floating_layout
+
 import os.path
 import subprocess
+
+
+
+
+# --------------------------------------------------------
+# Test Section
+# --------------------------------------------------------
+
+
+
 # --------------------------------------------------------
 # Your configuration
 # --------------------------------------------------------
