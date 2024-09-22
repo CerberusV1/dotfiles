@@ -10,6 +10,8 @@
 # --------------------------------------------------------------------
 # Imports
 # --------------------------------------------------------------------
+
+from libqtile import qtile
 from libqtile.config import Key, Drag, Click
 from libqtile.lazy import lazy
 
@@ -84,7 +86,7 @@ keys = [
     Key([alt], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Rofi"),
     # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
-    Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser"),
+    Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser on current screen"),
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
         
     # ________________________________________________________
