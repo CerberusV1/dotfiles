@@ -39,7 +39,7 @@ bitwarden-desktop &
 discord &
 
 # Start firefox
-firefox --new-instance &
+# firefox --new-instance &
 
 # Start steam in systray
 steam -silent &
