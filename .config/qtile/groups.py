@@ -29,6 +29,7 @@ groups = [
     Group(name="3", screen_affinity=0, label=""),
 
     # Screen 1
+    # TODO: allow terminal to spawn eith 25% if possible :D
     Group(name="4", screen_affinity=1, label="", exclusive=[Match(wm_class="firefox")]),
     Group(name="5", screen_affinity=1, label="", matches=[Match(wm_class="youtube music")]),
     Group(name="6", screen_affinity=1, label=""),

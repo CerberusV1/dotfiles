@@ -11,6 +11,7 @@
 # Imports
 # --------------------------------------------------------------------
 from libqtile import hook
+
 import subprocess
 import os.path
 
@@ -23,3 +24,8 @@ def autostart():
     autostartscript = "~/.config/qtile/autostart.sh"
     home = os.path.expanduser(autostartscript)
     subprocess.Popen([home])
+    from libqtile import qtile
+    qtile.cmd_to_screen(1)
+    qtile.cmd_spawn("firefox")
+    
+
