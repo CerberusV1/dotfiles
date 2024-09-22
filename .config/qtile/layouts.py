@@ -11,6 +11,7 @@
 # Imports
 # --------------------------------------------------------------------
 from libqtile import layout
+from libqtile.config import Match
 
 
 layout_defaults = dict(
@@ -38,25 +39,19 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-floating_layout = layout.Floating(auto_float_typesR=[
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'notify'},
-    {'wmclass': 'popup_menu'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'nm-connection-editor'},  # networkmanager
-    {'wmclass': 'bitwarden'},  # bitwarden
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitkm
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-    ], 
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(wm_class="nm-connection-editor"),  # networkmanager
+        Match(wm_class="bitwarden"),  # bitwarden        
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+        
+    ],
     **floating_layout_defaults
-    )
+)
