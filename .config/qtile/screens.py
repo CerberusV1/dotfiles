@@ -15,7 +15,7 @@ from libqtile.config import Screen
 from libqtile import bar
 from libqtile.lazy import lazy
 from qtile_extras import widget
-from qtile_extras.widget.decorations import PowerLineDecoration
+from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 
 import os.path
 
@@ -42,7 +42,12 @@ decL = {
     "padding": 5,
 }
 
-
+decoration_group = {
+    "decorations": [
+        RectDecoration(colour="#004040", radius=10, filled=True, padding_y=4, group=True)
+    ],
+    "padding": 10,
+}
 
 # --------------------------------------------------------
 # Widgets
@@ -164,17 +169,17 @@ screens = [
                                         colour_no_updates="#00ff00",
                                         no_update_string='  0',
                                         font='Font Awesome',
-                                        fontsize=16,
+                                        fontsize=18,
                                         display_format='  {updates}',
                                         **decR,
                                     ),
-                widget.PulseVolume(
+                widget.Volume(
                                 background="#033f67",
                                 foreground="#a37aed",
-                                fontsize=16,
+                                fontsize=20,
                                 font='Font Awesome',
                                 cannel='Master',
-                                fmt='   {}',
+                                fmt='  ',
                                 mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
                                 **decR,
                             ),
