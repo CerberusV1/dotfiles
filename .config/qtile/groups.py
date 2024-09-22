@@ -31,7 +31,7 @@ groups = [
     # Screen 1
     Group(name="4", screen_affinity=1, label="", matches=[Match(wm_class="firefox")]),
     Group(name="5", screen_affinity=1, label="", matches=[Match(wm_class="youtube music")]),
-    Group(name="6", screen_affinity=1, label="", matches=[Match(wm_class="nemo")]),
+    Group(name="6", screen_affinity=1, label=""),
 
     # Screen 2
     Group(name="7", screen_affinity=2, label="", matches=[Match(wm_class="discord")]),  

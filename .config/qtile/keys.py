@@ -17,7 +17,9 @@ from libqtile.lazy import lazy
 # Set default apps
 # --------------------------------------------------------------------
 
-terminal = "alacritty"   
+terminal = "alacritty" 
+browser = "firefox"
+filemanager = "nemo"
 
 # --------------------------------------------------------------------
 # Keybindings
@@ -82,6 +84,9 @@ keys = [
     Key([alt], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Rofi"),
     # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
+    Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser"),
+    Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
+        
     # ________________________________________________________
     
 ]
