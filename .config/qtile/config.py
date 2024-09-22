@@ -15,13 +15,11 @@
 from libqtile import bar, layout, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 
 import os.path
 import subprocess
-
 # --------------------------------------------------------
 # Your configuration
 # --------------------------------------------------------
@@ -357,11 +355,12 @@ screens = [
                                         display_format='  {updates}',
                                         **decR,
                                     ),
-                widget.Volume(
+                widget.PulseVolume(
                                 background="#033f67",
                                 foreground="#a37aed",
                                 fontsize=16,
                                 font='Font Awesome',
+                                cannel='Master',
                                 fmt='   {}',
                                 mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
                                 **decR,
