@@ -24,6 +24,7 @@ terminal = "alacritty"
 # --------------------------------------------------------------------
 
 mod = "mod4" # SUPER KEY
+alt = "mod1"
 
 keys = [
 
@@ -78,7 +79,7 @@ keys = [
     # Programs
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "r", lazy.spawn("rofi -show drun -show-icons"), desc="Spawn Rofi"),
-    Key([mod], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Rofi"),
+    Key([alt], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Rofi"),
     # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
     # ________________________________________________________
