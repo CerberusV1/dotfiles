@@ -32,8 +32,6 @@ dunst &
 # Start flameshot
 flameshot &
 
-# Start bitwarden in systray
-bitwarden-desktop &
 
 # Load discord
 discord &

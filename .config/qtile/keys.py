@@ -23,6 +23,7 @@ terminal = "alacritty"
 browser = "firefox"
 filemanager = "nemo"
 
+
 # --------------------------------------------------------------------
 # Keybindings
 # --------------------------------------------------------------------
@@ -87,7 +88,9 @@ keys = [
     # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
     Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser on current screen"),
+    Key([mod, "shift"], "p", lazy.spawn("firefox --private-window"), desc="Opens Private Browser on current screen"),
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
+    Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden floting"),
         
     # ________________________________________________________
     
