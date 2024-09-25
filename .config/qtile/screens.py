@@ -111,11 +111,18 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
-                widget.Spacer(
-                                background="#033f67",
-                                length=20,
-                                **decL
-                            ),
+                # widget.Spacer(
+                #                 background="#033f67",
+                #                 length=1,
+                #                 **decL
+                #             ),
+                widget.Image(
+                    filename='~/Pictures/icons/arch/arch_linux_icon_132588.png',
+                    background='#033f67',
+                    margin=3,
+                    margin_x=4,
+                    **decL
+                    ),
                 widget.Wttr(
                                 background="#05606b",
                                 font='sans',
@@ -133,6 +140,11 @@ screens = [
                                 format='  {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
                                 **decL
                             ),
+                widget.Mpris2(
+                     popup_layout="COMPACT_LAYOUT",
+                     background="#05606b",
+                     **decL                   
+                ),
                 widget.Spacer(
                                 background="#101533",
                                 **decL
