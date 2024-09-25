@@ -42,13 +42,6 @@ decL = {
     "padding": 5,
 }
 
-decoration_group = {
-    "decorations": [
-        RectDecoration(colour="#004040", radius=10, filled=True, padding_y=4, group=True)
-    ],
-    "padding": 10,
-}
-
 # --------------------------------------------------------
 # Widgets
 # --------------------------------------------------------
@@ -70,6 +63,15 @@ bar_groupbox_3 = widget.GroupBox(
                                     visible_groups=['7', '8', '9']
                                 )
 
+# Keychord Widget to display the keychords in the top bar
+bar_keychord = widget.Chord(
+                                font='sans',
+                                fontsize=14,
+                                padding=3,
+                                chords_colors={"launch": ("#ff0000", "#ffffff"),},
+                                name_transform=lambda name: name.upper(),
+                            )
+
 # Clock Widget
 bar_clockFHD = widget.Clock(
                                 font='sans',
@@ -79,33 +81,21 @@ bar_clockFHD = widget.Clock(
                                 format="%d.%m.%y %H:%M",                       
                             )
 
-bar_wttr = widget.Wttr(
-                                background="#05606b",
-                                font='sans',
-                                fontsize=16,
-                                format='%c %t',
-                            ),
-bar_tempname = widget.Net(
-                                background="#033f67",
-                                fontsize=16,
-                                font='Font Awesome',
-                                mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
-                                foreground="#a37aed",
-                                interface="enp42s0",
-                                format='  {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
-                            ),
+# Spacer (flexible)
+bar_spacer = widget.Spacer(
+                                background="#101533",
+                            )
 
-bar_updates = widget.CheckUpdates(
-                            distro='Arch_checkupdates', 
-                            background="#05606b",
-                            colour_have_updates="#ff0000",
-                            colour_no_updates="#00ff00",
-                            no_update_string='  0',
-                            font='Font Awesome',
-                            fontsize=18,
-                            display_format='  {updates}'
-                            ),
-                
+# Spacer (fixed)
+bar_spacerFixed = widget.Spacer(
+                                background="#033f67",
+                                length=10
+                            )
+# Spacer (fixed)
+bar_spacerFixedWQHD = widget.Spacer(
+                                background="#033f67",
+                                length=10,
+                            )
 
 
 # --------------------------------------------------------
@@ -121,6 +111,62 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
+                # widget.Spacer(
+                #                 background="#033f67",
+                #                 length=1,
+                #                 **decL
+                #             ),
+                widget.Image(
+                    filename='~/Pictures/icons/arch/arch_linux_icon_132588.png',
+                    background='#033f67',
+                    margin=3,
+                    margin_x=4,
+                    **decL
+                    ),
+                widget.Wttr(
+                                background="#05606b",
+                                font='sans',
+                                fontsize=16,
+                                format='%c %t',
+                                **decL
+                            ),
+                widget.Net(
+                                background="#033f67",
+                                fontsize=16,
+                                font='Font Awesome',
+                                mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
+                                foreground="#a37aed",
+                                interface="enp42s0",
+                                format='  {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
+                                **decL
+                            ),
+                widget.Mpris2(
+                     popup_layout="COMPACT_LAYOUT",
+                     background="#05606b",
+                     **decL                   
+                ),
+                widget.Spacer(
+                                background="#101533",
+                                **decL
+                            ),
+                widget.GroupBox(
+                                    font='sans',
+                                    fontsize=26,
+                                    padding=3,
+                                    background="#033f67",
+                                    highlight_method="text",
+                                    spacing=10,
+                                    visible_groups=['1', '2', '3'],
+                                ),
+                widget.Spacer(
+                                background="#033f67",
+                                length=1,
+                                **decR
+                            ),
+                widget.Spacer(
+                                background="#10153310",
+                                **decR
+                            ),
                 widget.CheckUpdates(
                                         distro='Arch_checkupdates', 
                                         background="#05606b",
