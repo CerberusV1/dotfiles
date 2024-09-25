@@ -54,16 +54,6 @@ decoration_group = {
 # --------------------------------------------------------
 
 # Groupboxes for the different screens
-bar_groupbox_1 = widget.GroupBox(
-                                    font='sans',
-                                    fontsize=26,
-                                    padding=3,
-                                    background="#033f67",
-                                    highlight_method="text",
-                                    spacing=10,
-                                    visible_groups=['1', '2', '3'],
-                                )
-
 bar_groupbox_2 = widget.GroupBox(
                                     font='sans',
                                     fontsize=14,
@@ -80,15 +70,6 @@ bar_groupbox_3 = widget.GroupBox(
                                     visible_groups=['7', '8', '9']
                                 )
 
-# Keychord Widget to display the keychords in the top bar
-bar_keychord = widget.Chord(
-                                font='sans',
-                                fontsize=14,
-                                padding=3,
-                                chords_colors={"launch": ("#ff0000", "#ffffff"),},
-                                name_transform=lambda name: name.upper(),
-                            )
-
 # Clock Widget
 bar_clockFHD = widget.Clock(
                                 font='sans',
@@ -98,21 +79,33 @@ bar_clockFHD = widget.Clock(
                                 format="%d.%m.%y %H:%M",                       
                             )
 
-# Spacer (flexible)
-bar_spacer = widget.Spacer(
-                                background="#101533",
-                            )
+bar_wttr = widget.Wttr(
+                                background="#05606b",
+                                font='sans',
+                                fontsize=16,
+                                format='%c %t',
+                            ),
+bar_tempname = widget.Net(
+                                background="#033f67",
+                                fontsize=16,
+                                font='Font Awesome',
+                                mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
+                                foreground="#a37aed",
+                                interface="enp42s0",
+                                format='  {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
+                            ),
 
-# Spacer (fixed)
-bar_spacerFixed = widget.Spacer(
-                                background="#033f67",
-                                length=10
-                            )
-# Spacer (fixed)
-bar_spacerFixedWQHD = widget.Spacer(
-                                background="#033f67",
-                                length=10,
-                            )
+bar_updates = widget.CheckUpdates(
+                            distro='Arch_checkupdates', 
+                            background="#05606b",
+                            colour_have_updates="#ff0000",
+                            colour_no_updates="#00ff00",
+                            no_update_string='  0',
+                            font='Font Awesome',
+                            fontsize=18,
+                            display_format='  {updates}'
+                            ),
+                
 
 
 # --------------------------------------------------------
@@ -128,40 +121,6 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
-                widget.Spacer(
-                                background="#033f67",
-                                length=20,
-                                **decLwidget.GroupBox(
-                                    font='sans',
-                                    fontsize=26,
-                                    padding=3,
-                                    background="#033f67",
-                                    highlight_method="text",
-                                    spacing=10,
-                                    visible_groups=['1', '2', '3'],
-                                ),
-                                background="#033f67",
-                                fontsize=16,
-                                font='Font Awesome',
-                                mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
-                                foreground="#a37aed",
-                                interface="enp42s0",
-                                format='  {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
-                                **decLwidget.GroupBox(
-                                    font='sans',
-                                    fontsize=26,
-                                    padding=3,
-                                    background="#033f67",
-                                    highlight_method="text",
-                                    spacing=10,
-                                    visible_groups=['1', '2', '3'],
-                                ),
-                                **decR
-                            ),
-                widget.Spacer(
-                                background="#10153310",
-                                **decR
-                            ),
                 widget.CheckUpdates(
                                         distro='Arch_checkupdates', 
                                         background="#05606b",
