@@ -42,11 +42,28 @@ decL = {
     "padding": 5,
 }
 
+decoration_group = {
+    "decorations": [
+        RectDecoration(colour="#004040", radius=10, filled=True, padding_y=4, group=True)
+    ],
+    "padding": 10,
+}
+
 # --------------------------------------------------------
 # Widgets
 # --------------------------------------------------------
 
 # Groupboxes for the different screens
+bar_groupbox_1 = widget.GroupBox(
+                                    font='sans',
+                                    fontsize=26,
+                                    padding=3,
+                                    background="#033f67",
+                                    highlight_method="text",
+                                    spacing=10,
+                                    visible_groups=['1', '2', '3'],
+                                )
+
 bar_groupbox_2 = widget.GroupBox(
                                     font='sans',
                                     fontsize=14,
@@ -114,30 +131,7 @@ screens = [
                 widget.Spacer(
                                 background="#033f67",
                                 length=20,
-                                **decL
-                            ),
-                widget.Wttr(
-                                background="#05606b",
-                                font='sans',
-                                fontsize=16,
-                                format='%c %t',
-                                **decL
-                            ),
-                widget.Net(
-                                background="#033f67",
-                                fontsize=16,
-                                font='Font Awesome',
-                                mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
-                                foreground="#a37aed",
-                                interface="enp42s0",
-                                format='  {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
-                                **decL
-                            ),
-                widget.Spacer(
-                                background="#101533",
-                                **decL
-                            ),
-                widget.GroupBox(
+                                **decLwidget.GroupBox(
                                     font='sans',
                                     fontsize=26,
                                     padding=3,
@@ -146,9 +140,22 @@ screens = [
                                     spacing=10,
                                     visible_groups=['1', '2', '3'],
                                 ),
-                widget.Spacer(
                                 background="#033f67",
-                                length=1,
+                                fontsize=16,
+                                font='Font Awesome',
+                                mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
+                                foreground="#a37aed",
+                                interface="enp42s0",
+                                format='  {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
+                                **decLwidget.GroupBox(
+                                    font='sans',
+                                    fontsize=26,
+                                    padding=3,
+                                    background="#033f67",
+                                    highlight_method="text",
+                                    spacing=10,
+                                    visible_groups=['1', '2', '3'],
+                                ),
                                 **decR
                             ),
                 widget.Spacer(
