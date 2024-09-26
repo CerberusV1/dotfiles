@@ -16,6 +16,7 @@ from libqtile import bar
 from libqtile.lazy import lazy
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
+from qtile_extras.popup.templates.mpris2 import COMPACT_LAYOUT
 
 import os.path
 
@@ -45,10 +46,12 @@ colors = {
 decor = {
     "decorations": [
         RectDecoration(
-            colour=colors["highlight"]["o1"], 
-            radius=10, 
+            colour=colors["highlight"]["o1"],
+            line_colour=colors["white"],
+            line_width=2, 
+            radius=14, 
             filled=True, 
-            padding=3, 
+            padding_x=2, 
             extrawidth=10,
             group=False,
             )
@@ -58,11 +61,13 @@ decor = {
 decor_gr = {
     "decorations": [
         RectDecoration(
-            colour=colors["highlight"]["o2"], 
-            radius=10, 
+            colour=colors["highlight"]["o2"],            
+            line_colour=colors["white"],
+            line_width=2,  
+            radius=14, 
             filled=True, 
             extrawidth=10, 
-            padding=3, 
+            padding_x=2, 
             group=True,
             )
         ],
@@ -85,12 +90,14 @@ screens = [
                     filename='~/Pictures/icons/arch/arch_linux_icon_132588.png',
                     scale=True,
                     adjust_x=5,
+                    margin=7,       # Image Sitze
                     **decor,
-                    ),
-                widget.Spacer(length=1,**decor_gr),
+                    ),                
+                widget.Spacer(length=1),
+                # widget.Spacer(length=1,**decor_gr),
                 widget.GroupBox(
                     font='sans',
-                    fontsize=25,
+                    fontsize=30,
                     padding=3,
                     visible_groups=['1', '2', '3'],
                     highlight_method='text',
@@ -101,51 +108,51 @@ screens = [
                 widget.Clock(
                     font='Font Awesome',
                     foreground=colors["white"],
-                    fontsize=18,
+                    fontsize=20 ,
                     padding=3,
                     format="    %H:%M",
                     **decor_gr                         
                     ),
                 widget.Wttr(
-                                font='sans',
-                                fontsize=16,
-                                format='%c %t',
-                                **decor_gr
+                    font='sans',
+                    fontsize=20,
+                    format='  %t',
+                    **decor_gr
                     ),
                 widget.Spacer(),
-                widget.Net(
-                                fontsize=20,
-                                font='Font Awesome',
-                                mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
-                                foreground=colors["white"],
-                                interface="enp42s0",
-                                format='   {down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}',
-                                prefix='M',
-                                **decor
-                            ),
-                                    
                 widget.Systray(
                     icon_size=23,
                     ),
-                widget.Volume(
+                widget.TextBox(
+                    text="    🖧",
+                    fontsize=20,
+                    foreground=colors["white"],                    
+                    font='Font Awesome',
+                    mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
+                    
+                    **decor_gr                    
+                    ),                                    
+                widget.TextBox(
                         foreground=colors["white"],
                         fontsize=20,
                         font='Font Awesome',
-                        cannel='Master',
-                        fmt='  ',
+                        text="🔊",
                         mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
                         **decor_gr
                     ),
                 widget.CheckUpdates(
                             distro='Arch_checkupdates',
-                            colour_have_updates="#ff0000",
-                            colour_no_updates="#00ff00",
+                            colour_have_updates=colors["white"],
+                            colour_no_updates=colors["white"],
                             no_update_string='  0',
                             font='Font Awesome',
-                            fontsize=18,
+                            fontsize=20,
                             display_format='  {updates}',
                             **decor_gr
                             ),
+                widget.TextBox(
+                    fmt='{}'
+                    ),
             ],
             background="00000000",
             size=35,
@@ -168,6 +175,15 @@ screens = [
                                     highlight_method='text',
                                     **decor_gr
                                 ),
+                widget.Mpris2(
+                    name="mpris2",
+                    format='   {xesam:title} - {xesam:artist}',
+                    padding=10,
+                    paused_text='{track}',
+                    popup_layout=COMPACT_LAYOUT,
+                    mouse_callback={'Button1': lazy.widget["mpris2"].popup(),},
+                    **decor
+                    ),
                 widget.Spacer(),
                 widget.Clock(
                     font='Font Awesome',
@@ -190,7 +206,6 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
-                widget.Spacer(length=1,**decor_gr),
                 widget.GroupBox(
                                     font='sans',
                                     fontsize=14,
@@ -210,7 +225,7 @@ screens = [
                     ),                
             ],
             background="00000000",
-            size=26,
+            size=28,
         ),
     ),
 
