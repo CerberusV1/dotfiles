@@ -24,20 +24,20 @@ from keys import keys, mod
 groups = [
 
     # Screen 0
-    Group(name="1", screen_affinity=0, label=""),
-    Group(name="2", screen_affinity=0, label=""),
-    Group(name="3", screen_affinity=0, label=""),
+    Group(name="1", screen_affinity=0, label="⏺"),
+    Group(name="2", screen_affinity=0, label="⏺"),
+    Group(name="3", screen_affinity=0, label="⏺"),
 
     # Screen 1
     # TODO: allow terminal to spawn eith 25% if possible :D
-    Group(name="4", screen_affinity=1, label="", exclusive=[Match(wm_class="firefox")]),
-    Group(name="5", screen_affinity=1, label="", matches=[Match(wm_class="youtube music")]),
-    Group(name="6", screen_affinity=1, label=""),
+    Group(name="4", screen_affinity=1, label="⏺"), #, exclusive=[Match(wm_class="firefox")]
+    Group(name="5", screen_affinity=1, label="⏺", matches=[Match(wm_class="youtube music")]),
+    Group(name="6", screen_affinity=1, label="⏺"),
 
     # Screen 2
-    Group(name="7", screen_affinity=2, label="", matches=[Match(wm_class="discord")]),  
-    Group(name="8", screen_affinity=2, label=""),
-    Group(name="9", screen_affinity=2, label="", matches=[Match(title="win10 on QEMU/KVM")]),
+    Group(name="7", screen_affinity=2, label="⏺", matches=[Match(wm_class="discord")]),  
+    Group(name="8", screen_affinity=2, label="⏺"),
+    Group(name="9", screen_affinity=2, label="⏺", matches=[Match(title="win10 on QEMU/KVM")]),
     
 ]
 
