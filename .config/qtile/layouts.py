@@ -52,6 +52,7 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(title="FloatWindow"),
+        Match(wm_class="qalculate-qt")
     ],
     **floating_layout_defaults
 )
