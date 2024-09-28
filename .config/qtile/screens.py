@@ -12,7 +12,7 @@
 # --------------------------------------------------------------------
 
 from libqtile.config import Screen
-from libqtile import bar
+from libqtile import bar, qtile
 from libqtile.lazy import lazy
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
@@ -148,6 +148,7 @@ screens = [
                             font='Font Awesome',
                             fontsize=20,
                             display_format='  {updates}',
+                            mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/update.sh")},
                             **decor_gr
                             ),
                 widget.TextBox(

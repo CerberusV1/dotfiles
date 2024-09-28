@@ -23,14 +23,13 @@ terminal = "alacritty"
 browser = "firefox"
 filemanager = "nemo"
 
-
 # --------------------------------------------------------------------
 # Keybindings
 # --------------------------------------------------------------------
 
 mod = "mod4" # SUPER KEY
 alt = "mod1"
-
+# KeybindStart
 keys = [
 
     # Focus
@@ -60,12 +59,12 @@ keys = [
 
 
     # Floating
-    Key([mod], "t", lazy.window.toggle_floating(), desc='Toggle floating'),
+    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating"),
     # ________________________________________________________
 
 
     # Fullscreen
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     # ________________________________________________________
 
 
@@ -90,7 +89,8 @@ keys = [
     Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser on current screen"),
     Key([mod, "shift"], "p", lazy.spawn("firefox --private-window"), desc="Opens Private Browser on current screen"),
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
-    Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden floting"),
+    Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden floating"),
+    Key([mod, "shift"], "i", lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/cheat-sheet.sh"), desc="Opens Cheat-Sheet"),
         
     # ________________________________________________________
     
@@ -105,3 +105,5 @@ mouse = [
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
+
+# KeybindEnd

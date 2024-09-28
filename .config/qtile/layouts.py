@@ -51,7 +51,7 @@ floating_layout = layout.Floating(
         Match(wm_class="bitwarden"),  # bitwarden        
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-        
+        Match(title="FloatWindow"),
     ],
     **floating_layout_defaults
 )

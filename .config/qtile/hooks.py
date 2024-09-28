@@ -11,6 +11,7 @@
 # Imports
 # --------------------------------------------------------------------
 from libqtile import hook, qtile
+from keys import floating_apps
 
 import subprocess
 import os.path
@@ -35,5 +36,4 @@ def move_bitwarden_to_current(client):
         client.togroup(qtile.current_group.name)
         client.group.cmd_toscreen(toggle=False)
 
-    
 

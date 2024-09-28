@@ -19,7 +19,8 @@ picom &
 dunst &
 
 # Load polkit agent
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # Load power manager
 # xfce4-power-manager &
