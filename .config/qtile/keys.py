@@ -32,67 +32,50 @@ alt = "mod1"
 # KeybindStart
 keys = [
 
-    # Focus
+    # KB_GROUP-Focus Window
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window around"),
-    # ________________________________________________________
 
-
-    # Move
+    # KB_GROUP-Move Window
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
-    # ________________________________________________________
 
-
-    # Size
+    # KB_GROUP-Reize Window
     Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "Up", lazy.layout.shrink(), desc="Grow window to the top"),
     Key([mod, "control"], "Down", lazy.layout.grow(), desc="Grow window to the bottom"),
+
+    # KB_GROUP-Window Controls
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    # ________________________________________________________
-
-
-    # Floating
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating"),
-    # ________________________________________________________
-
-
-    # Fullscreen
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
-    # ________________________________________________________
-
-
-    # Split
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
-    # ________________________________________________________
 
-
-    # System
+    # KB_GROUP-System Controls
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    # ________________________________________________________
+    
+    # KB_GROUP-Rofi Menus
+    Key([mod], "r", lazy.spawn("rofi -show drun -show-icons"), desc="Spawn Rofi D-Run"),
+    Key([alt], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Windows"),
+    # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi SSH-Connections"),
 
-
-    # Programs
+    # KB_GROUP-Programs
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "r", lazy.spawn("rofi -show drun -show-icons"), desc="Spawn Rofi"),
-    Key([alt], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Rofi"),
-    # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
     Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser on current screen"),
     Key([mod, "shift"], "p", lazy.spawn("firefox --private-window"), desc="Opens Private Browser on current screen"),
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
     Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden floating"),
-    Key([mod, "shift"], "i", lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/cheat-sheet.sh"), desc="Opens Cheat-Sheet"),
-        
-    # ________________________________________________________
+    Key([mod, "shift"], "i", lazy.spawn("alacritty --config-file=/home/cerberus/.config/alacritty/cheat-sheet.toml -T FloatWindow -e ./.config/qtile/assets/cheat-sheet.py"), desc="Opens Cheat-Sheet"),
+
     
 ]
 
