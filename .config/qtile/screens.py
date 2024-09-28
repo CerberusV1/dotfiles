@@ -182,7 +182,7 @@ screens = [
                     padding=10,
                     paused_text='{track}',
                     popup_layout=COMPACT_LAYOUT,
-                    mouse_callback={'Button1': lazy.widget["mpris2"].popup(),},
+                    # mouse_callback={'Button1': lazy.widget["mpris2"].popup(),},
                     **decor
                     ),
                 widget.Spacer(),
