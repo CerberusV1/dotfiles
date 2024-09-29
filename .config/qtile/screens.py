@@ -39,6 +39,8 @@ colors = {
 
 # background=colors["background"]["bg1"],
 
+
+
 # --------------------------------------------------------
 # Decorations
 # --------------------------------------------------------
@@ -73,6 +75,14 @@ decor_gr = {
         ],
 }
 
+
+
+class HoverWidgetBox(widget.WidgetBox):       
+    def mouse_enter(self, *args, **kwargs):
+        self.open()
+
+    def mouse_leave(self, *args, **kwargs):
+        self.close()
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
@@ -95,7 +105,6 @@ screens = [
                     **decor,
                     ),                
                 widget.Spacer(length=1),
-                # widget.Spacer(length=1,**decor_gr),
                 widget.GroupBox(
                     font='sans',
                     fontsize=30,
@@ -131,71 +140,63 @@ screens = [
                 widget.Systray(
                     icon_size=23,
                     ),
-                widget.WidgetBox(
+                HoverWidgetBox(
                     close_button_location='right',
-                    text_closed=' ',
-                    text_open='',
-                    fontsize=30,
+                    text_closed='  ',
+                    text_open='  ',
+                    fontsize=20,
+                    mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
                     widgets=[
-                        widget.WidgetBox(
-                            close_button_location='right',
-                            text_closed='  ',
-                            text_open='  ',
-                            fontsize=20,
-                            widgets=[
-                                widget.Net(
-                                    interface='enp42s0',
-                                    format='  {down:6.2f}{down_suffix:<2}↓↑{up:6.2f}{up_suffix:<2}',
-                                    use_bits=True,
-                                    fontsize=16,
-                                    foreground=colors["white"],                    
-                                    font='Font Awesome',
-                                    mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
-                                    **decor_gr
+                        widget.Net(
+                            interface='enp42s0',
+                            format='  {down:6.2f}{down_suffix:<2}↓↑{up:6.2f}{up_suffix:<2}',
+                            use_bits=True,
+                            fontsize=16,
+                            foreground=colors["white"],                    
+                            font='Font Awesome',
+                            mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
+                            **decor_gr
                             ),                
-                            ],
-                        **decor_gr  
-                        ),
-                        widget.WidgetBox(
-                            close_button_location='right',
+                    ],
+                    **decor_gr
+                    ),
+                HoverWidgetBox(
+                    close_button_location='right',
+                    font='Font Awesome',
+                    text_closed=' ',
+                    text_open=' ',
+                    fontsize=22,
+                    widgets=[                                               
+                        widget.PulseVolume(
+                                foreground=colors["white"],
+                                fontsize=18,
+                                font='Font Awesome',
+                                mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
+                                **decor_gr
+                                ),
+                    ],
+                    **decor_gr,
+                    ),
+                HoverWidgetBox(
+                    close_button_location='right',
+                    font='Font Awesome',
+                    text_closed=' ',
+                    text_open=' ',
+                    fontsize=20,
+                    widgets=[
+                        widget.CheckUpdates(
+                            distro='Arch_checkupdates',
+                            colour_have_updates=colors["white"],
+                            colour_no_updates=colors["white"],
+                            no_update_string='0',
                             font='Font Awesome',
-                            text_closed=' ',
-                            text_open=' ',
-                            fontsize=22,
-                            widgets=[                                               
-                                widget.PulseVolume(
-                                        foreground=colors["white"],
-                                        fontsize=18,
-                                        font='Font Awesome',
-                                        mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
-                                        **decor_gr
-                                    ),
-                            ],
-                            **decor_gr,
-                            ),
-                        widget.WidgetBox(
-                            close_button_location='right',
-                            font='Font Awesome',
-                            text_closed=' ',
-                            text_open=' ',
                             fontsize=20,
-                            widgets=[
-                                widget.CheckUpdates(
-                                    distro='Arch_checkupdates',
-                                    colour_have_updates=colors["white"],
-                                    colour_no_updates=colors["white"],
-                                    no_update_string='  0',
-                                    font='Font Awesome',
-                                    fontsize=20,
-                                    display_format='{updates}',
-                                    mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/update.sh")},
-                                    **decor_gr
-                                    ),                                
-                            ],
-                        **decor_gr  
-                        ),
-                  ],
-                  **decor,  
+                            display_format='{updates}',
+                            mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/update.sh")},
+                            **decor_gr
+                            ),                                
+                    ],
+                **decor_gr  
                 ),
                 widget.TextBox(
                     foreground=colors["white"],
@@ -216,7 +217,6 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
-                widget.Spacer(length=1,**decor_gr),
                 widget.GroupBox(
                                     font='sans',
                                     fontsize=14,
@@ -233,7 +233,7 @@ screens = [
                     padding=10,
                     paused_text='{track}',
                     popup_layout=COMPACT_LAYOUT,
-                    # mouse_callback={'Button1': lazy.widget["mpris2"].popup(),},
+                    mouse_callback={'Button1': lazy.widget["mpris2"].popup(),},
                     **decor
                     ),
                 widget.Spacer(),
