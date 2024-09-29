@@ -25,14 +25,14 @@ def autostart():
     home = os.path.expanduser(autostartscript)
     subprocess.Popen([home])
     from libqtile import qtile
-    qtile.cmd_to_screen(1)
-    qtile.cmd_spawn("firefox")
+    qtile.to_screen(1)
+    qtile.spawn("firefox")
     
 
 @hook.subscribe.client_new
 def move_bitwarden_to_current(client):
     if client.window.get_wm_class() == ('bitwarden', 'Bitwarden'):
         client.togroup(qtile.current_group.name)
-        client.group.cmd_toscreen(toggle=False)
+        client.group.toscreen(toggle=False)
 
 
