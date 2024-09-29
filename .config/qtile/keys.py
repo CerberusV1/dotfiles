@@ -67,6 +67,12 @@ keys = [
     Key([alt], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Windows"),
     # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi SSH-Connections"),
 
+    # KB_GROUP-ScratchPad
+    Key(["control"], "1", lazy.group["scratchpad"].dropdown_toggle("term"), desc="Opens a PopUp Terminal"),
+    Key(["control"], "2", lazy.group['scratchpad'].dropdown_toggle('mixer'), desc="Opens the Volume Mixer"),
+    Key(["control"], "3", lazy.group['scratchpad'].dropdown_toggle('files'), desc="Opens Nemo in a Scratchpad"),
+    Key(["control"], "4", lazy.group['scratchpad'].dropdown_toggle('yt'), desc="Opens Nemo in a Scratchpad"),
+
     # KB_GROUP-Programs
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "v", lazy.spawn("copyq toggle"), desc="Shows Clipboard"),
