@@ -87,7 +87,8 @@ screens = [
         top=bar.Bar(
             [
                 widget.Image(
-                    filename='~/Pictures/icons/arch/arch_linux_icon_132588.png',
+                    filename='~/Pictures/icons/arch/arch_linux_icon_132588.png',                    
+                    mouse_callbacks={"Button1": lazy.spawn("rofi -show drun -show-icons")},
                     scale=True,
                     adjust_x=5,
                     margin=7,       # Image Sitze
@@ -113,46 +114,95 @@ screens = [
                     format="    %H:%M",
                     **decor_gr                         
                     ),
-                widget.Wttr(
-                    font='sans',
+                widget.TextBox(
+                    text="  ",
                     fontsize=20,
-                    format='  %t',
+                    foreground=colors["white"],                    
+                    font='Font Awesome',
+                    **decor_gr                    
+                    ),
+                widget.Wttr(
+                    font='Ubuntu Mono',
+                    fontsize=20,
+                    format='%t',
                     **decor_gr
                     ),
                 widget.Spacer(),
                 widget.Systray(
                     icon_size=23,
                     ),
-                widget.TextBox(
-                    text="    🖧",
-                    fontsize=20,
-                    foreground=colors["white"],                    
-                    font='Font Awesome',
-                    mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
-                    
-                    **decor_gr                    
-                    ),                                    
-                widget.TextBox(
-                        foreground=colors["white"],
-                        fontsize=20,
-                        font='Font Awesome',
-                        text="🔊",
-                        mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
-                        **decor_gr
-                    ),
-                widget.CheckUpdates(
-                            distro='Arch_checkupdates',
-                            colour_have_updates=colors["white"],
-                            colour_no_updates=colors["white"],
-                            no_update_string='  0',
-                            font='Font Awesome',
+                widget.WidgetBox(
+                    close_button_location='right',
+                    text_closed=' ',
+                    text_open='',
+                    fontsize=30,
+                    widgets=[
+                        widget.WidgetBox(
+                            close_button_location='right',
+                            text_closed='  ',
+                            text_open='  ',
                             fontsize=20,
-                            display_format='  {updates}',
-                            mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/update.sh")},
-                            **decor_gr
+                            widgets=[
+                                widget.Net(
+                                    interface='enp42s0',
+                                    format='  {down:6.2f}{down_suffix:<2}↓↑{up:6.2f}{up_suffix:<2}',
+                                    use_bits=True,
+                                    fontsize=16,
+                                    foreground=colors["white"],                    
+                                    font='Font Awesome',
+                                    mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
+                                    **decor_gr
+                            ),                
+                            ],
+                        **decor_gr  
+                        ),
+                        widget.WidgetBox(
+                            close_button_location='right',
+                            font='Font Awesome',
+                            text_closed=' ',
+                            text_open=' ',
+                            fontsize=22,
+                            widgets=[                                               
+                                widget.PulseVolume(
+                                        foreground=colors["white"],
+                                        fontsize=18,
+                                        font='Font Awesome',
+                                        mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
+                                        **decor_gr
+                                    ),
+                            ],
+                            **decor_gr,
                             ),
+                        widget.WidgetBox(
+                            close_button_location='right',
+                            font='Font Awesome',
+                            text_closed=' ',
+                            text_open=' ',
+                            fontsize=20,
+                            widgets=[
+                                widget.CheckUpdates(
+                                    distro='Arch_checkupdates',
+                                    colour_have_updates=colors["white"],
+                                    colour_no_updates=colors["white"],
+                                    no_update_string='  0',
+                                    font='Font Awesome',
+                                    fontsize=20,
+                                    display_format='{updates}',
+                                    mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/update.sh")},
+                                    **decor_gr
+                                    ),                                
+                            ],
+                        **decor_gr  
+                        ),
+                  ],
+                  **decor,  
+                ),
                 widget.TextBox(
-                    fmt='{}'
+                    foreground=colors["white"],
+                    fontsize=24,
+                    font='Font Awesome',
+                    text="  ",
+                    mouse_callbacks={"Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu")},
                     ),
             ],
             background="00000000",
@@ -178,6 +228,7 @@ screens = [
                                 ),
                 widget.Mpris2(
                     name="mpris2",
+                    scroll=False,
                     format='   {xesam:title} - {xesam:artist}',
                     padding=10,
                     paused_text='{track}',
