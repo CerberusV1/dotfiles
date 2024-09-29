@@ -12,8 +12,9 @@
 # --------------------------------------------------------------------
 
 
-from libqtile.config import Group, Key, Match
+from libqtile.config import Group, Key, Match, ScratchPad, DropDown
 from libqtile.lazy import lazy
+from keys import terminal, filemanager
 
 from keys import keys, mod
 
@@ -29,9 +30,8 @@ groups = [
     Group(name="3", screen_affinity=0, label="⏺"),
 
     # Screen 1
-    # TODO: allow terminal to spawn eith 25% if possible :D
-    Group(name="4", screen_affinity=1, label="⏺"), #, exclusive=[Match(wm_class="firefox")]
-    Group(name="5", screen_affinity=1, label="⏺", matches=[Match(wm_class="youtube music")]),
+    Group(name="4", screen_affinity=1, label="⏺", exclusive=[Match(wm_class="firefox")]), #
+    Group(name="5", screen_affinity=1, label="⏺"),
     Group(name="6", screen_affinity=1, label="⏺"),
 
     # Screen 2
@@ -65,6 +65,7 @@ def go_to_group(name: str):
 
 for i in groups:
     keys.append(Key([mod], i.name, lazy.function(go_to_group(i.name))))
+    
 
 def go_to_group_and_move_window(name: str):
     def _inner(qtile):
@@ -92,4 +93,49 @@ def go_to_group_and_move_window(name: str):
 
 for i in groups:
     keys.append(Key([mod, "shift"], i.name, lazy.function(go_to_group_and_move_window(i.name))))
+
+groups.append(
+    ScratchPad(
+        'scratchpad',
+        [
+            DropDown(
+                'term',
+                terminal,
+                width=0.4,
+                height=0.5,
+                x=0.3,
+                y=0.25,
+                opacity=1
+            ),
+            DropDown(
+                'mixer',
+                'pavucontrol-qt',
+                width=0.4,
+                height=0.6,
+                x=0.3,
+                y=0.2,
+                opacity=1
+            ),
+            DropDown(
+                'files',
+                filemanager,
+                width=0.6,
+                height=0.6,
+                x=0.2,
+                y=0.2,
+                opacity=1
+            ),
+            DropDown(
+                'yt',
+                'youtube-music',
+                width=0.6,
+                height=0.6,
+                x=0.2,
+                y=0.2,
+                opacity=1
+            ),
+        ]
+    )
+)
+
 
