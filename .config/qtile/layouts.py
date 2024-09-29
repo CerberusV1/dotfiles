@@ -12,17 +12,19 @@
 # --------------------------------------------------------------------
 from libqtile import layout
 from libqtile.config import Match
+from screens import colors
 
 
 layout_defaults = dict(
     margin = 5,
-    border_width = 3,
-    border_focus="#FFFFFF",
+    border_width = 2,
+    border_focus=colors["highlight"]["o1"],
+    border_normal=colors["white"],
     grow_amount = 3,
     )
 
 floating_layout_defaults = layout_defaults.copy()
-floating_layout_defaults["border_width"] = 0
+# floating_layout_defaults["border_width"] = 2
 
 layouts = [
     # layout.Max(**layout_defaults),
