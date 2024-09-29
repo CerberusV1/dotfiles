@@ -76,7 +76,7 @@ decor_gr = {
 }
 
 
-
+# HoverWidgetBox by @elParaguayo
 class HoverWidgetBox(widget.WidgetBox):       
     def mouse_enter(self, *args, **kwargs):
         self.open()
