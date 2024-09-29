@@ -14,9 +14,11 @@
 from libqtile.config import Screen
 from libqtile import bar, qtile
 from libqtile.lazy import lazy
+from popup import show_power_menu
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.popup.templates.mpris2 import COMPACT_LAYOUT
+
 
 import os.path
 
@@ -83,6 +85,7 @@ class HoverWidgetBox(widget.WidgetBox):
 
     def mouse_leave(self, *args, **kwargs):
         self.close()
+
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
@@ -166,7 +169,11 @@ screens = [
                     text_closed=' ',
                     text_open=' ',
                     fontsize=22,
-                    widgets=[                                               
+                    widgets=[  
+                        widget.Sep(
+                            foreground=colors["white"],
+                            size_percent=60,
+                            **decor_gr),                                              
                         widget.PulseVolume(
                                 foreground=colors["white"],
                                 fontsize=18,
@@ -184,6 +191,10 @@ screens = [
                     text_open=' ',
                     fontsize=20,
                     widgets=[
+                        widget.Sep(
+                            foreground=colors["white"],
+                            size_percent=60,
+                            **decor_gr),                                             
                         widget.CheckUpdates(
                             distro='Arch_checkupdates',
                             colour_have_updates=colors["white"],
@@ -203,7 +214,7 @@ screens = [
                     fontsize=24,
                     font='Font Awesome',
                     text="  ",
-                    mouse_callbacks={"Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu")},
+                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     ),
             ],
             background="00000000",
