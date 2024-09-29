@@ -144,7 +144,7 @@ screens = [
                     close_button_location='right',
                     text_closed='  ',
                     text_open='  ',
-                    fontsize=20,
+                    fontsize=22,
                     mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
                     widgets=[
                         widget.Net(
