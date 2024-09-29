@@ -22,6 +22,8 @@ dunst &
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
+# Load Clipboardmanager
+copyq &
 # Load power manager
 # xfce4-power-manager &
 
