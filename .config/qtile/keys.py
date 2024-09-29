@@ -69,6 +69,7 @@ keys = [
 
     # KB_GROUP-Programs
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "v", lazy.spawn("copyq toggle"), desc="Shows Clipboard"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
     Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser on current screen"),
     Key([mod, "shift"], "p", lazy.spawn("firefox --private-window"), desc="Opens Private Browser on current screen"),
