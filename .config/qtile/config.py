@@ -12,7 +12,7 @@
 # --------------------------------------------------------------------
 from screens import screens
 from keys import keys, mouse
-from layouts import layouts
+from layouts import layouts, floating_layout
 from groups import groups
 from hooks import *
 
