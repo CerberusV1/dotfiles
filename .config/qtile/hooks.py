@@ -11,7 +11,6 @@
 # Imports
 # --------------------------------------------------------------------
 from libqtile import hook, qtile
-from keys import floating_apps
 
 import subprocess
 import os.path
