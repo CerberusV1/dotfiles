@@ -190,6 +190,7 @@ screens = [
                     text_closed=' ',
                     text_open=' ',
                     fontsize=20,
+                    mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/update.sh")},
                     widgets=[
                         widget.Sep(
                             foreground=colors["white"],
@@ -203,7 +204,6 @@ screens = [
                             font='Font Awesome',
                             fontsize=20,
                             display_format='{updates}',
-                            mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/assets/update.sh")},
                             **decor_gr
                             ),                                
                     ],
@@ -214,7 +214,8 @@ screens = [
                     fontsize=24,
                     font='Font Awesome',
                     text="  ",
-                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
+                    mouse_callbacks={"Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu")},
+                    # mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     ),
             ],
             background="00000000",
