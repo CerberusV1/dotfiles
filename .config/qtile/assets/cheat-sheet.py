@@ -16,6 +16,8 @@ def replace_keys(key):
     """Replace Mod and Control with Super and Ctrl."""
     if key == "mod":
         return "Super"
+    if key == "xf86calculator":
+        return "Calculator"
     elif key == "control":
         return "Ctrl"
     return key
