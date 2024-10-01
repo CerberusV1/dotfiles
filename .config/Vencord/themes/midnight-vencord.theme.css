@@ -34,10 +34,10 @@
 
 	/* accent colors */
 	--accent-1: #7caea3; /* links */
-	--accent-2: hsl(343.6, 46.7%, 67.6%); /* general unread/mention elements */
-	--accent-3: hsl(343.6, 46.7%, 67.6%); /* accent buttons */
-	--accent-4: hsl(343.6, 46.7%, 67.6%); /* accent buttons when hovered */
-	--accent-5: hsl(343.6, 46.7%, 61.6%); /* accent buttons when clicked */
+	--accent-2: #e75a1d; /* general unread/mention elements */
+	--accent-3: #e75a1d; /* accent buttons */
+	--accent-4: #e75a1d; /* accent buttons when hovered */
+	--accent-5: #e75a1d; /* accent buttons when clicked */
 	--mention: hsla(343.6, 46.7%, 61.6%, 0.1); /* mentions & mention messages */
 	--mention-hover: hsla(343.6, 46.7%, 61.6%, 0.05); /* mentions & mention messages when hovered */
 
@@ -69,11 +69,11 @@
 	--icon-spin-transition: 1s ease; /* round icon button spin (settings, emoji, etc.) */
 
 	/* corner roundness (border-radius) */
-	--roundness-xl: 22px; /* roundness of big panel outer corners */
+	--roundness-xl: 16px; /* roundness of big panel outer corners */
 	--roundness-l: 20px; /* popout panels */
 	--roundness-m: 16px; /* smaller panels, images, embeds */
 	--roundness-s: 12px; /* members, settings inputs */
-	--roundness-xs: 10px; /* channels, buttons */
+	--roundness-xs: 12px; /* channels, buttons */
 	--roundness-xxs: 8px; /* searchbar, small elements */
 
 	/* direct messages moon icon */

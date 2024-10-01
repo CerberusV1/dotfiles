@@ -14,7 +14,7 @@
     "winNativeTitleBar": false,
     "plugins": {
         "ChatInputButtonAPI": {
-            "enabled": false
+            "enabled": true
         },
         "CommandsAPI": {
             "enabled": true
@@ -29,10 +29,10 @@
             "enabled": false
         },
         "MessageEventsAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessagePopoverAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessageUpdaterAPI": {
             "enabled": false
@@ -65,7 +65,15 @@
             "enabled": false
         },
         "BetterFolders": {
-            "enabled": false
+            "enabled": true,
+            "sidebar": true,
+            "showFolderIcon": 1,
+            "keepIcons": false,
+            "closeAllHomeButton": false,
+            "closeAllFolders": false,
+            "forceOpen": false,
+            "sidebarAnim": true,
+            "closeOthers": true
         },
         "BetterGifAltText": {
             "enabled": false
@@ -74,7 +82,9 @@
             "enabled": false
         },
         "BetterNotesBox": {
-            "enabled": false
+            "enabled": false,
+            "hide": false,
+            "noSpellCheck": false
         },
         "BetterRoleContext": {
             "enabled": false
@@ -86,7 +96,10 @@
             "enabled": false
         },
         "BetterSettings": {
-            "enabled": false
+            "enabled": true,
+            "disableFade": true,
+            "eagerLoad": true,
+            "organizeMenu": true
         },
         "BetterUploadButton": {
             "enabled": false
@@ -98,10 +111,11 @@
             "enabled": false
         },
         "CallTimer": {
-            "enabled": false
+            "enabled": true,
+            "format": "stopwatch"
         },
         "ClearURLs": {
-            "enabled": false
+            "enabled": true
         },
         "ClientTheme": {
             "enabled": false
@@ -119,7 +133,7 @@
             "enabled": false
         },
         "CopyFileContents": {
-            "enabled": false
+            "enabled": true
         },
         "CopyUserURLs": {
             "enabled": false
@@ -131,7 +145,9 @@
             "enabled": false
         },
         "CustomRPC": {
-            "enabled": false
+            "enabled": false,
+            "type": 0,
+            "timestampMode": 0
         },
         "CustomIdle": {
             "enabled": false
@@ -158,7 +174,13 @@
             "enabled": false
         },
         "FakeNitro": {
-            "enabled": false
+            "enabled": true,
+            "enableEmojiBypass": true,
+            "enableStickerBypass": true,
+            "enableStreamQualityBypass": true,
+            "transformEmojis": true,
+            "transformStickers": true,
+            "transformCompoundSentence": false
         },
         "FakeProfileThemes": {
             "enabled": false
@@ -185,7 +207,7 @@
             "enabled": false
         },
         "FriendsSince": {
-            "enabled": false
+            "enabled": true
         },
         "FullSearchContext": {
             "enabled": false
@@ -200,7 +222,7 @@
             "enabled": false
         },
         "HideAttachments": {
-            "enabled": false
+            "enabled": true
         },
         "iLoveSpam": {
             "enabled": false
@@ -212,7 +234,7 @@
             "enabled": false
         },
         "ImageZoom": {
-            "enabled": false
+            "enabled": true
         },
         "ImplicitRelationships": {
             "enabled": false
@@ -266,7 +288,7 @@
             "enabled": false
         },
         "NewGuildSettings": {
-            "enabled": false
+            "enabled": true
         },
         "NoBlockedMessages": {
             "enabled": false
@@ -296,7 +318,7 @@
             "enabled": false
         },
         "NoReplyMention": {
-            "enabled": false
+            "enabled": true
         },
         "NoScreensharePreview": {
             "enabled": false
@@ -323,7 +345,10 @@
             "enabled": false
         },
         "OnePingPerDM": {
-            "enabled": false
+            "enabled": true,
+            "channelToAffect": "both_dms",
+            "allowMentions": true,
+            "allowEveryone": true
         },
         "oneko": {
             "enabled": false
@@ -353,10 +378,12 @@
             "enabled": false
         },
         "PinDMs": {
-            "enabled": false
+            "enabled": true,
+            "dmSectioncollapsed": false,
+            "pinOrder": 0
         },
         "PlainFolderIcon": {
-            "enabled": false
+            "enabled": true
         },
         "PlatformIndicators": {
             "enabled": false
@@ -395,7 +422,10 @@
             "enabled": false
         },
         "ReviewDB": {
-            "enabled": false
+            "enabled": true,
+            "notifyReviews": true,
+            "showWarning": true,
+            "hideBlockedUsers": true
         },
         "RoleColorEverywhere": {
             "enabled": false
@@ -440,7 +470,9 @@
             "enabled": false
         },
         "SilentTyping": {
-            "enabled": false
+            "enabled": true,
+            "isEnabled": true,
+            "showIcon": false
         },
         "SortFriendRequests": {
             "enabled": false
@@ -557,6 +589,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1727722667887
+        "settingsSyncVersion": 1727725893878
     }
 }
