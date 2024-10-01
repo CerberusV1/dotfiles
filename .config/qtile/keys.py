@@ -62,10 +62,19 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     
+    # KB_GROUP-Audio and Media Control    
+    Key([], "XF86AudioMute", lazy.spawn("pamixer -t"), desc="Mute Audio"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 2"), desc="Lower Volume"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 2"), desc="Next Song"),
+    
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous Media"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play Pause Media"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next Media"),
+        
     # KB_GROUP-Rofi Menus
     Key([mod], "r", lazy.spawn("rofi -show drun -show-icons"), desc="Spawn Rofi D-Run"),
     Key([alt], "Tab", lazy.spawn("rofi -show window -show-icons"), desc="Spawn Windows"),
-    # Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi SSH-Connections"),
+    Key([mod], "p", lazy.spawn("rofi -show ssh"), desc="Spawn Rofi SSH-Connections"),
 
     # KB_GROUP-ScratchPad
     Key(["control"], "1", lazy.group["scratchpad"].dropdown_toggle("term"), desc="Opens a PopUp Terminal"),
@@ -82,6 +91,7 @@ keys = [
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
     Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden floating"),
     Key([mod, "shift"], "i", lazy.spawn("alacritty --config-file=/home/cerberus/.config/alacritty/cheat-sheet.toml -T FloatWindow -e ./.config/qtile/assets/cheat-sheet.py"), desc="Opens Cheat-Sheet"),
+    Key([], "XF86Calculator", lazy.group['scratchpad'].dropdown_toggle('calc'), desc="Open Calculator in scratchpad"),
 
     
 ]
