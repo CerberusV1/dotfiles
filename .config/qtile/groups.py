@@ -134,6 +134,15 @@ groups.append(
                 y=0.2,
                 opacity=1
             ),
+            DropDown(
+                'calc',
+                'qalculate-qt',
+                width=0.6,
+                height=0.6,
+                x=0.2,
+                y=0.2,
+                opacity=1
+            ),
         ]
     )
 )
