@@ -14,9 +14,9 @@
 
 from libqtile.config import Group, Key, Match, ScratchPad, DropDown
 from libqtile.lazy import lazy
-from keys import terminal, filemanager
+from modules.keys import terminal, filemanager
 
-from keys import keys, mod
+from modules.keys import keys, mod
 
 # --------------------------------------------------------
 # Groups / Workspaces

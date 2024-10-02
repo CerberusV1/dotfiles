@@ -12,7 +12,7 @@
 # --------------------------------------------------------------------
 from libqtile import layout
 from libqtile.config import Match
-from modules import colors
+from modules.screens import colors
 # from helper.colors import wp_colors
 
 

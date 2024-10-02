@@ -14,7 +14,7 @@
 from libqtile.config import Screen
 from libqtile import bar, qtile
 from libqtile.lazy import lazy
-from popup import show_power_menu
+from modules.popup import show_power_menu
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.popup.templates.mpris2 import COMPACT_LAYOUT
