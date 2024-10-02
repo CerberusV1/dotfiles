@@ -12,15 +12,14 @@
 # --------------------------------------------------------------------
 from libqtile import layout
 from libqtile.config import Match
-from modules.screens import colors
-# from helper.colors import wp_colors
+from helper.colors import wp_colors
 
 
 layout_defaults = dict(
     margin = 5,
     border_width = 2,
-    border_focus=colors["highlight"]["o1"],
-    border_normal=colors["white"],
+    border_focus=wp_colors[4],
+    border_normal=wp_colors[7],
     grow_amount = 3,
     )
 
