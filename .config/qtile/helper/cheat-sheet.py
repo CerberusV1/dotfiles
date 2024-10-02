@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 
 # Define the file path using Path and expand user directory
-file_path = Path("~/dotfiles/.config/qtile/keys.py").expanduser()
+file_path = Path("~/dotfiles/.config/qtile/modules/keys.py").expanduser()
 
 # Initialize a flag for header printing
 header_printed = False
