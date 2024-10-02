@@ -10,11 +10,11 @@
 # --------------------------------------------------------------------
 # Imports
 # --------------------------------------------------------------------
-from screens import screens
-from keys import keys, mouse
-from layouts import layouts, floating_layout
-from groups import groups
-from hooks import *
+from modules.screens import screens
+from modules.keys import keys, mouse
+from modules.layouts import layouts, floating_layout
+from modules.groups import groups
+from modules.hooks import *
 
 # --------------------------------------------------------
 # General Setup
