@@ -90,7 +90,7 @@ keys = [
     Key([mod, "shift"], "p", lazy.spawn("firefox --private-window"), desc="Opens Private Browser on current screen"),
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
     Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden floating"),
-    Key([mod, "shift"], "i", lazy.spawn("alacritty --config-file=/home/cerberus/.config/alacritty/cheat-sheet.toml -T FloatWindow -e ./.config/qtile/assets/cheat-sheet.py"), desc="Opens Cheat-Sheet"),
+    Key([mod, "shift"], "i", lazy.spawn("alacritty --config-file=/home/cerberus/.config/alacritty/cheat-sheet.toml -T FloatWindow -e ./.config/qtile/helper/cheat-sheet.py"), desc="Opens Cheat-Sheet"),
     Key([], "XF86Calculator", lazy.group['scratchpad'].dropdown_toggle('calc'), desc="Open Calculator in scratchpad"),
 
     
