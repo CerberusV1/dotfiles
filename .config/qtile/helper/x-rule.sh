@@ -9,4 +9,3 @@ xprop | grep -e "WM_CLASS" -e "WM_NAME" -e "WM_SIZE"| awk -F' = ' '{
         printf "WM_Size: %s\n", $3
     }
 }' | sed 's/\"//g'
-read -p "Press [Enter] to exit..."
