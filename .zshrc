@@ -75,5 +75,5 @@ setopt hist_find_no_dups
 
 
 
-
-
+wal -R -n -q
+neofetch
