@@ -23,13 +23,13 @@ I made this out of preference like this, I don´t like to scroll for ages to fin
 
 ### Applications
 
-For convenience and a visual appealing "Home", thats what I call it, I aim for QT based applications. Why? In my mind the easiest to customize so here we are with qt.
+For GUI-Apps I opt for Qt based once since I simply like it.
 
 I choose dunst for notifications and picom as a compositor, basically the default for almost everyone...
 
 I use nitrogen to set the wallpaper and soon setting a wallpaper also changes the color scheme of the desktop.
 
-As shell i use zsh, based on [this](https://youtu.be/y6XCebnB9gs?si=tkho-EFBMfcOKPEu) video with minor tweaks. I also used his [ohmyposh video](https://youtu.be/9U8LCjuQzdc?si=nkDru-NK5QHiGTo3) and for now just copied his configuration. Here I also seperated the aliases in a .aliases file to have them seperate too for the reason below...
+As shell i use zsh, based on [this](https://youtu.be/y6XCebnB9gs?si=tkho-EFBMfcOKPEu) video with minor tweaks. I also used his [ohmyposh video](https://youtu.be/9U8LCjuQzdc?si=nkDru-NK5QHiGTo3) and for now just copied his configuration. I also seperated the aliases into an .aliases file for the reason below...
 
 *Some day I will upload a dedicated zsh repo for remote ssh machines.*  
 
