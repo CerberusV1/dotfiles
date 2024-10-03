@@ -80,12 +80,25 @@ class HoverWidgetBox(widget.WidgetBox):
 # GroupBox2 - Rules
 # --------------------------------------------------------
 
+def set_label(rule, box):
+    if box.focused:
+        rule.text = "◉"
+    elif box.occupied:
+        rule.text = "◎"
+    else:
+        rule.text = "○"
+
+    return True
+
 grpBx_rule = [
-    GroupBoxRule(text_colour=wp_colors[6]).when(focused=False, occupied=True),
-    GroupBoxRule(text_colour=wp_colors[15]).when(focused=False, occupied=False),
-    GroupBoxRule(text_colour='#966cb6').when(focused=True),
-    
+    # GroupBoxRule().when(func=set_label),
+    GroupBoxRule(text_colour=wp_colors[15]).when(focused=False, occupied=True),
+    GroupBoxRule(text_colour=wp_colors[8]).when(focused=False, occupied=False),
+    GroupBoxRule(text_colour=wp_colors[6]).when(focused=True),
+    GroupBoxRule(text_colour='#de6e5e').when(focused=False, occupied=True, urgent=True),
 ]
+
+
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
@@ -102,7 +115,7 @@ screens = [
                     adjust_x=5,
                     margin=0,       # Image Sitze
                     mask=True,
-                    colour=wp_colors[15],
+                    colour=wp_colors[6],
                     **decor,
                     ),             
                 widget.Spacer(length=1),
@@ -110,8 +123,7 @@ screens = [
                     font='Font Awesome',
                     fontsize=24,
                     visible_groups=['1', '2', '3', '4', '5', '6', '7', '8', '9'],
-                    padding=5,
-                    margin=4, 
+                    padding=8,
                     rules=grpBx_rule,
                     **decor_gr,
                     ),
@@ -217,8 +229,9 @@ screens = [
                     fontsize=22,
                     font='Font Awesome',
                     text="  ",
+                    mouse_callbacks={"Button1": lazy.spawn("./.config/qtile/helper/power.sh")},
                     # mouse_callbacks={"Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu")},
-                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
+                    # mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     ),
             ],
             background="#30363f00",
@@ -231,9 +244,11 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Spacer(length=2,**decor_gr),
                 widget.GroupBox2(
                                     font='Font Awesome',
                                     fontsize=20,
+                                    padding=6,
                                     visible_groups=['4', '5', '6'],
                                     rules=grpBx_rule,
                                     **decor_gr
@@ -247,15 +262,24 @@ screens = [
                     **decor_gr                         
                     ),
                 widget.Spacer(),
+                widget.TextBox(
+                    fontsize=18,
+                    font='Font Awesome',
+                    text="    ",   
+                    **decor_gr,                 
+                ),
                 widget.Mpris2(
+                    font='Font Awesome',
+                    fontsize=16,
                     name="mpris2",
-                    scroll=False,
-                    format='   {xesam:title} - {xesam:artist}',
+                    width=250,
+                    scroll=True,
+                    format='{xesam:title} - {xesam:artist}',
                     padding=10,
                     paused_text='{track}',
                     popup_layout=COMPACT_LAYOUT,
                     mouse_callback={'Button1': lazy.widget["mpris2"].popup(),},
-                    **decor
+                    **decor_gr
                     ),
                 widget.TextBox(
                     fontsize=18,
@@ -279,7 +303,7 @@ screens = [
                 widget.GroupBox2(
                                     font='Font Awesome',
                                     fontsize=18,
-                                    padding=6,
+                                    padding=10,
                                     center_aligned=True,
                                     visible_groups=['7', '8', '9'],
                                     highlight_method='text',
