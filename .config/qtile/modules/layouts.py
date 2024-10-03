@@ -20,7 +20,7 @@ layout_defaults = dict(
     border_width = 2,
     border_focus=wp_colors[4],
     border_normal=wp_colors[7],
-    grow_amount = 3,
+    grow_amount = 2,
     )
 
 floating_layout_defaults = layout_defaults.copy()
@@ -28,7 +28,7 @@ floating_layout_defaults = layout_defaults.copy()
 
 layouts = [
     # layout.Max(**layout_defaults),
-    layout.Bsp(name="bsp", **layout_defaults, shift_windows = True, ratio = 0.5,),
+    layout.Bsp(name="bsp", **layout_defaults, ratio = 0.5,),
     # layout.Stack(num_stacks=2),
     # layout.Columns(),
     # layout.Matrix(),
