@@ -1,19 +1,15 @@
+@import "~/.cache/wal/colors-rofi-dark"
+
 configuration {
   font: "JetBrainsMono Nerd Font Medium 50";
 }
 
 
 * {
-  bg: #1E1E2E99;
-  bg-alt: #585b7066;
-  bg-selected: #31324466;
 
-  fg: #619eff;
-  fg-alt: #7f849c;
-  
   border: 0;
-  margin:5;
-  padding: 5;
+  margin: 5;
+  padding: 25;
   spacing: 5;
 }
 
@@ -25,6 +21,7 @@ window {
 element {
   background-color: transparent;
   text-color: @fg-alt;
+  padding: 10;
 }
 
 element selected {

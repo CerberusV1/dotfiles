@@ -1,20 +1,14 @@
+@import "~/.cache/wal/colors-rofi-dark"
+
 configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
   font: "JetBrainsMono Nerd Font Medium 20";
 }
-@theme "/dev/null"
 
 * {
-  bg: #1e1e2e;
-  bg-alt: #585b7066;
-  bg-selected: #31324466;
 
-  fg: #c867eb;
-  fg-alt: #7f849c;
-
-  
   border: 0;
   margin: 0;
   padding: 0;
@@ -29,7 +23,7 @@ window {
 }
 
 element {
-  padding: 60 12;
+  padding: 10 12;
 
   background-color: transparent;
   text-color: @fg-alt;

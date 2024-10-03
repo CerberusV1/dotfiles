@@ -1,3 +1,4 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 configuration {
   modi: "window,drun,ssh";
   display-drun: "Applications:";
@@ -6,17 +7,9 @@ configuration {
   font: "JetBrainsMono Nerd Font Medium 10";
 }
 
-@theme "/dev/null"
+//@theme "/dev/null"
 
 * {
-  bg: #df732670;
-  bg-alt: #585b7066;
-  bg-selected: #31324466;
-
-  fg: #ffffff;
-  fg-alt: #f9edd9;
-
-  
   border: 0;
   margin: 0;
   padding: 0;
@@ -25,18 +18,15 @@ configuration {
 
 window {
   width: 40%;
-  background-color: @bg;
 }
 
 element {
   padding: 8 12;
   background-color: transparent;
-  text-color: @fg-alt;
 }
 
 element selected {
   text-color: @fg;
-  background-color: @bg-selected;
 }
 
 element-text {
@@ -53,30 +43,22 @@ element-icon {
 
 entry {
   padding: 12;
-  background-color: @bg-alt;
-  text-color: @fg;
 }
 
 inputbar {
   children: [entry];
-  background-color: @bg;
 }
 
 listview {
-  background-color: @bg;
   columns: 2;
   lines: 8;
 }
 
 mainbox {
   children: [inputbar, listview];
-  background-color: @bg;
 }
 
 prompt {
   enabled: true;
   padding: 12 0 0 12;
-  background-color: @bg-alt;
-  text-color: @fg;
 }
-
