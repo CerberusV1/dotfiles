@@ -35,7 +35,7 @@ groups = [
 
     # Screen 2
     Group(name="7", screen_affinity=2, label="", matches=[Match(wm_class="discord")]),  
-    Group(name="8", screen_affinity=2, label=""),
+    Group(name="8", screen_affinity=2, label=""),
     Group(name="9", screen_affinity=2, label="", matches=[Match(title="win10 on QEMU/KVM")]),
     
 ]
