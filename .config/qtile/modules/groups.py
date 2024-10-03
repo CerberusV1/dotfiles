@@ -30,7 +30,7 @@ groups = [
 
     # Screen 1
     Group(name="4", screen_affinity=1, label="", exclusive=[Match(wm_class="firefox")]), #
-    Group(name="5", screen_affinity=1, label=""),
+    Group(name="5", screen_affinity=1, label=""),
     Group(name="6", screen_affinity=1, label=""),
 
     # Screen 2
