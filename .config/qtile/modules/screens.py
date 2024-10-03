@@ -30,6 +30,8 @@ widget_defaults = dict(
     # background='#222222',    
     foreground=wp_colors[7],    
 )
+
+
 # --------------------------------------------------------
 # Decorations
 # --------------------------------------------------------
@@ -37,7 +39,7 @@ widget_defaults = dict(
 decor = {
     "decorations": [
         RectDecoration(
-            colour=wp_colors[1],
+            colour=wp_colors[2],
             radius=14, 
             filled=True, 
             padding_x=2, 
@@ -50,7 +52,7 @@ decor = {
 decor_gr = {
     "decorations": [
         RectDecoration(
-            colour=wp_colors[2], 
+            colour=wp_colors[1], 
             radius=14, 
             filled=True, 
             extrawidth=10, 
@@ -61,6 +63,10 @@ decor_gr = {
 }
 
 
+# --------------------------------------------------------
+# Custom functionalities
+# --------------------------------------------------------
+
 # HoverWidgetBox by @elParaguayo
 class HoverWidgetBox(widget.WidgetBox):       
     def mouse_enter(self, *args, **kwargs):
@@ -69,10 +75,20 @@ class HoverWidgetBox(widget.WidgetBox):
     def mouse_leave(self, *args, **kwargs):
         self.close()
 
+
+# --------------------------------------------------------
+# GroupBox2 - Rules
+# --------------------------------------------------------
+
+grpBx_rule = [
+    GroupBoxRule(text_colour=wp_colors[6]).when(focused=False, occupied=True),
+    GroupBoxRule(text_colour=wp_colors[15]).when(focused=False, occupied=False),
+    GroupBoxRule(text_colour='#966cb6').when(focused=True),
+    
+]
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
-
 
 screens = [
 
@@ -84,7 +100,7 @@ screens = [
                     filename='~/.config/qtile/images/standby_rotated.png',                    
                     scale=True,
                     adjust_x=5,
-                    margin=1,       # Image Sitze
+                    margin=0,       # Image Sitze
                     mask=True,
                     colour=wp_colors[15],
                     **decor,
@@ -92,17 +108,11 @@ screens = [
                 widget.Spacer(length=1),
                 widget.GroupBox2(
                     font='Font Awesome',
-                    fontsize=26,
-                    padding=6,
-                    margin=3,
-                    active=wp_colors[6],
+                    fontsize=24,
                     visible_groups=['1', '2', '3', '4', '5', '6', '7', '8', '9'],
-                    highlight_method='text',
-                    inactive=wp_colors[15],
-                    toggle=True,
-                    urgent_alert_method="text",
-                    urgent_text=wp_colors[13],
-                    center_aligned=True,
+                    padding=5,
+                    margin=4, 
+                    rules=grpBx_rule,
                     **decor_gr,
                     ),
                 widget.Spacer(),
@@ -207,8 +217,8 @@ screens = [
                     fontsize=22,
                     font='Font Awesome',
                     text="  ",
-                    mouse_callbacks={"Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu")},
-                    # mouse_callbacks={"Button1": lazy.function(show_power_menu)},
+                    # mouse_callbacks={"Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu")},
+                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     ),
             ],
             background="#30363f00",
@@ -221,16 +231,11 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(
+                widget.GroupBox2(
                                     font='Font Awesome',
                                     fontsize=20,
-                                    padding=6,
-                                    margin_x=5,
-                                    center_aligned=True,
                                     visible_groups=['4', '5', '6'],
-                                    highlight_method='text',
-                                    active='#82b572',
-                                    inactive='#000000',
+                                    rules=grpBx_rule,
                                     **decor_gr
                                 ),
                 widget.Spacer(),
@@ -271,13 +276,14 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(
+                widget.GroupBox2(
                                     font='Font Awesome',
                                     fontsize=18,
                                     padding=6,
                                     center_aligned=True,
                                     visible_groups=['7', '8', '9'],
                                     highlight_method='text',
+                                    rules=grpBx_rule,
                                     **decor_gr
                                 ),
                 widget.Spacer(),

@@ -1,3 +1,4 @@
+# import = ["/home/user0/.cache/wal/colors-alacritty.toml"]
 live_config_reload = true
 working_directory = "None"
 
