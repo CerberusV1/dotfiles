@@ -38,7 +38,7 @@ widget_defaults = dict(
 decor = {
     "decorations": [
         RectDecoration(
-            colour=wp_colors[2],
+            colour=wp_colors[4],
             radius=14, 
             filled=True, 
             padding_x=2, 
@@ -64,7 +64,7 @@ decor_gr = {
 decorQ = {
     "decorations": [
         RectDecoration(
-            colour=wp_colors[2],
+            colour=wp_colors[4],
             radius=18, 
             filled=True, 
             padding_x=2, 
@@ -93,8 +93,8 @@ decor_trio = {
             use_widget_background=True,
             radius=14, 
             filled=True, 
-            extrawidth=10, 
-            padding_x=2, 
+            extrawidth=8, 
+            padding_x=0, 
             group=True,
         )
     ]
@@ -165,7 +165,7 @@ screens = [
                     adjust_y=1,
                     margin=0,       # Image Sitze
                     mask=True,
-                    colour=wp_colors[5],
+                    colour=wp_colors[1],
                     **decorQ,
                     ),             
                 widget.Spacer(length=1),
@@ -182,7 +182,7 @@ screens = [
                 widget.Clock(
                     font='Open Sans Bold',
                     background=wp_colors[2],
-                    fontsize=18,
+                    fontsize=20,
                     fontshadow=wp_colors[0],
                     padding=3,
                     format="  %d.%m.%y",
@@ -192,7 +192,7 @@ screens = [
                     text="",
                     background=wp_colors[2],
                     foreground=wp_colors[7],
-                    fontsize=18,
+                    fontsize=20,
                     fontshadow=wp_colors[0],
                     font='Font Awesome',
                     **decor_trio                    
@@ -207,7 +207,7 @@ screens = [
                     ),
                 widget.Clock(
                     font='Open Sans Ultra-Bold',
-                    fontsize=24,
+                    fontsize=28,
                     fontshadow=wp_colors[0],
                     background=wp_colors[2],
                     format="  %H:%M",
@@ -223,16 +223,16 @@ screens = [
                     ),
                 widget.TextBox(
                     text="  ",
-                    fontsize=18,
+                    fontsize=20,
                     fontshadow=wp_colors[0],
                     background=wp_colors[2],
                     foreground=wp_colors[7],
-                    font='Font Awesome',
+                    font='Font Awesome Semi-Bold',
                     **decor_trio                    
                     ),
                 widget.Wttr(
                     font='Open Sans Bold',
-                    fontsize=18,
+                    fontsize=20,
                     fontshadow=wp_colors[0],
                     background=wp_colors[2],
                     format='%t',
