@@ -265,7 +265,6 @@ screens = [
                             fontsize=16,
                             fontshadow=wp_colors[0],
                             font='Open Sans Bold',
-                            mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
                             **decor_grQ
                             ),                
                     ],
@@ -278,6 +277,7 @@ screens = [
                     text_closed=' ',
                     text_open=' ',
                     fontsize=24,
+                    mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
                     foreground=wp_colors[7],
                     widgets=[                                              
                         widget.PulseVolume(
@@ -285,7 +285,6 @@ screens = [
                                 fontshadow=wp_colors[0],
                                 font='Open Sans Bold',
                                 format='  {volume}%',
-                                mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
                                 padding=10,
                                 **decor_grQ
                                 ),
@@ -318,6 +317,7 @@ screens = [
                             fontsize=16,
                             fontshadow=wp_colors[0],
                             display_format='{updates}  ',
+                            mouse_callbacks={"Button1": lazy.spawn("alacritty -T FloatWindow -e ./.config/qtile/helper/update.sh")},
                             **decor_grQ
                             ), 
                         widget.TextBox(
