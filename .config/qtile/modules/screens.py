@@ -151,7 +151,7 @@ def get_groupbox_rules(monitor_specific=False):
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
-
+bar.Bar
 screens = [
 
     # Screen 1 WQHD 27"
@@ -163,7 +163,7 @@ screens = [
                     scale=True,
                     adjust_x=6,
                     adjust_y=1,
-                    margin=0,       # Image Sitze
+                    margin=4,       # Image Sitze
                     mask=True,
                     colour=wp_colors[1],
                     **decorQ,
@@ -549,4 +549,6 @@ screens = [
     ),
 
 ]
+
+bar_wqhd = screens[0]
 
