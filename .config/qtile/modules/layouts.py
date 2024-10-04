@@ -17,7 +17,7 @@ from helper.colors import wp_colors
 
 layout_defaults = dict(
     margin = 5,
-    border_width = 2,
+    border_width = 3,
     border_focus=wp_colors[4],
     border_normal=wp_colors[7],
     grow_amount = 2,
