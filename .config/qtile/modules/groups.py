@@ -14,8 +14,9 @@
 
 from libqtile.config import Group, Key, Match, ScratchPad, DropDown
 from libqtile.lazy import lazy
-from modules.keys import terminal, filemanager
 from modules.keys import keys, mod
+from modules.keys import terminal, filemanager
+
 
 # --------------------------------------------------------
 # Groups / Workspaces
@@ -93,6 +94,7 @@ def go_to_group_and_move_window(name: str):
 for i in groups:
     keys.append(Key([mod, "shift"], i.name, lazy.function(go_to_group_and_move_window(i.name))))
 
+
 groups.append(
     ScratchPad(
         'scratchpad',
@@ -145,5 +147,4 @@ groups.append(
         ]
     )
 )
-
 
