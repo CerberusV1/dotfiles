@@ -15,6 +15,7 @@
 # Load picom
 picom &
 
+
 # Load notification service
 dunst &
 
@@ -27,6 +28,7 @@ nitrogen --restore &
 
 # Load Clipboardmanager
 copyq &
+
 # Load power manager
 # xfce4-power-manager &
 
@@ -38,15 +40,12 @@ copyq &
 # Start flameshot
 flameshot &
 
-
 # Load discord
 discord &
 
 # Start steam in systray
 steam -silent &
 
-# Start YTM
-youtube-music &
 
 
 
