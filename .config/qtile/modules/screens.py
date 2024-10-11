@@ -245,11 +245,11 @@ screens = [
                 HoverWidgetBox(
                     close_button_location='right',
                     font='Font Awesome',
-                    text_closed=' ',
-                    text_open=' ',
-                    fontsize=26,
+                    text_closed=' ',
+                    text_open=' ',
+                    fontsize=20,
                     fontshadow=wp_colors[0],
-                    padding=6,
+                    padding=10,
                     foreground=wp_colors[7],
                     mouse_callbacks={"Button1": lazy.spawn("nm-connection-editor")},
                     widgets=[
@@ -274,7 +274,7 @@ screens = [
                     fontsize=24,
                     mouse_callbacks={"Button1": lazy.spawn("pavucontrol-qt")},
                     foreground=wp_colors[7],
-                    padding=6,
+                    padding=10,
                     widgets=[                                              
                         widget.PulseVolume(
                                 fontsize=16,
