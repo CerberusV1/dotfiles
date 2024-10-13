@@ -78,9 +78,10 @@ keys = [
 
     # KB_GROUP-ScratchPad
     Key(["control"], "1", lazy.group["scratchpad"].dropdown_toggle("term"), desc="Opens a PopUp Terminal"),
-    Key(["control"], "2", lazy.group['scratchpad'].dropdown_toggle('mixer'), desc="Opens the Volume Mixer"),
+    Key(["control"], "2", lazy.group['scratchpad'].dropdown_toggle('mixer'), desc="Opens pavucontrol"),
     Key(["control"], "3", lazy.group['scratchpad'].dropdown_toggle('files'), desc="Opens Nemo in a Scratchpad"),
-    Key(["control"], "4", lazy.group['scratchpad'].dropdown_toggle('yt'), desc="Opens Nemo in a Scratchpad"),
+    Key(["control"], "4", lazy.group['scratchpad'].dropdown_toggle('yt'), desc="Opens YTM in a Scratchpad"),
+    Key([], "XF86Calculator", lazy.group['scratchpad'].dropdown_toggle('calc'), desc="Open Calculator in scratchpad"),
 
     # KB_GROUP-Programs
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
@@ -89,10 +90,9 @@ keys = [
     Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser on current screen"),
     Key([mod, "shift"], "p", lazy.spawn("firefox --private-window"), desc="Opens Private Browser on current screen"),
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),
-    Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden floating"),
+    Key([mod], "b", lazy.spawn("bitwarden-desktop"), desc="Opens Bitwarden"),
     Key([mod, "shift"], "i", lazy.spawn("alacritty --config-file=/home/cerberus/.config/alacritty/cheat-sheet.toml -T FloatWindow -e ./.config/qtile/helper/cheat-sheet.py"), desc="Opens Cheat-Sheet"),
-    Key([], "XF86Calculator", lazy.group['scratchpad'].dropdown_toggle('calc'), desc="Open Calculator in scratchpad"),
-
+    
     
 ]
 
