@@ -12,10 +12,6 @@
 # Autostart Services
 # -----------------------------------------------------
 
-# Load picom
-picom &
-
-
 # Load notification service
 dunst &
 
@@ -46,6 +42,11 @@ discord &
 # Start steam in systray
 steam -silent &
 
+# Had to move picom to the end with a interrupt, since this caused
+# picom not to start because qtile was not loaded properly.
+# The sleep interrupt also fixes that firefox doesn´t render since it now has more time to load
+# Load picom
+(sleep 2 && picom) &
 
 
 
