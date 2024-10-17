@@ -225,6 +225,7 @@ screens = [
                     ),
                 widget.Wttr(
                     font='Open Sans Bold',
+                    location={'Essen': 'Essen'},
                     fontsize=20,
                     fontshadow=wp_colors[0],
                     background=wp_colors[2],
