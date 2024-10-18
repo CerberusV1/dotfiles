@@ -56,19 +56,19 @@ white = "0xECEFF4"
 size = 14
 
 [font.normal]
-family = "monospace"
+family = "FiraCode Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "monospace"
+family = "FiraCode Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "monospace"
+family = "FiraCode Nerd Font"
 style = "Italic"
 
 [font.bold_italic]
-family = "monospace"
+family = "FiraCode Nerd Font"
 style = "Bold Italic"
 
 [selection]
