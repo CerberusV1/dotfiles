@@ -33,34 +33,39 @@ alt = "mod1"
 keys = [
 
     # KB_GROUP-Focus Window
-    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window around"),
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
 
     # KB_GROUP-Move Window
-    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "h", lazy.layout.swap_left(), desc="Move window to the left - Monad"),
+    Key([mod, "shift"], "l", lazy.layout.swap_right(), desc="Move window to the left - Monad"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
-    # KB_GROUP-Reize Window
-    Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "Up", lazy.layout.shrink(), desc="Grow window to the top"),
-    Key([mod, "control"], "Down", lazy.layout.grow(), desc="Grow window to the bottom"),
+    # KB_GROUP-Resize Window
+    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod], "m", lazy.layout.shrink(), desc="Grow window to the top"),
+    Key([mod], "i", lazy.layout.grow(), desc="Grow window to the bottom"),
 
     # KB_GROUP-Window Controls
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod], "n", lazy.layout.normalize(), desc="Normalize all window sizes"),
+    Key([mod, "shift"], "n", lazy.layout.reset(), desc="Reset all window sizes"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    Key([mod], "o", lazy.layout.maximize(), desc="Maximize window"),
+    Key([mod, "shift"], "s", lazy.layout.toggle_auto_maximize(), desc="Toggle auto maximize"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle full screen"),
+    Key([mod, "shift"], "space", lazy.layout.flip(), desc="Flip windows"),
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
 
     # KB_GROUP-System Controls
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    # Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     
     # KB_GROUP-Audio and Media Control    
     Key([], "XF86AudioMute", lazy.spawn("pamixer -t"), desc="Mute Audio"),
@@ -86,7 +91,7 @@ keys = [
     # KB_GROUP-Programs
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "v", lazy.spawn("copyq toggle"), desc="Shows Clipboard"),
-    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
+    Key([mod, "shift"], "q", lazy.spawn("flameshot gui"), desc="Screenshot selection"),
     Key([mod, "shift"], "b", lazy.spawn(browser), desc="Opens Browser on current screen"),
     Key([mod, "shift"], "p", lazy.spawn("firefox --private-window"), desc="Opens Private Browser on current screen"),
     Key([mod, "shift"], "e", lazy.spawn(filemanager), desc="Opens File Manager"),

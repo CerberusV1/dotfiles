@@ -18,24 +18,37 @@ from helper.colors import wp_colors
 layout_defaults = dict(
     margin = 5,
     border_width = 3,
-    border_focus=wp_colors[4],
+    border_focus=wp_colors[3],
     border_normal=wp_colors[7],
     grow_amount = 2,
     )
 
 floating_layout_defaults = layout_defaults.copy()
-# floating_layout_defaults["border_width"] = 2
 
 layouts = [
     # layout.Max(**layout_defaults),
-    layout.Bsp(name="bsp", **layout_defaults, ratio = 0.5,),
+    # layout.Plasma(),
+    # layout.Bsp(name="bsp",
+    #            ratio = 0.5,
+    #            border_on_single= True,
+    #            lower_right = True,
+    #            **layout_defaults,
+    #            ),
     # layout.Stack(num_stacks=2),
     # layout.Columns(),
     # layout.Matrix(),
-    # layout.MonadTall(),
+    layout.MonadTall(name="Monad",
+                     auto_maximize=True,
+                     change_ratio=0.05,
+                     change_size=20,
+                     ratio=0.55,
+                     min_ratio=0.30,
+                     max_ratio=0.75,
+                     **layout_defaults
+                     ),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    # layout.Tile(),
+    # layout.Tile(name="Tile", **layout_defaults),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
