@@ -39,8 +39,8 @@ keys = [
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
 
     # KB_GROUP-Move Window
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    # Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    # Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "h", lazy.layout.swap_left(), desc="Move window to the left - Monad"),
     Key([mod, "shift"], "l", lazy.layout.swap_right(), desc="Move window to the left - Monad"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
@@ -63,6 +63,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
 
     # KB_GROUP-System Controls
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     # Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
