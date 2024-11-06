@@ -16,3 +16,5 @@ fi
 
 # Restart Qtile to apply colors
 qtile cmd-obj -o cmd -f restart
+
+pywalfox update
