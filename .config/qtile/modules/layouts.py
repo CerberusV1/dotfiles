@@ -28,12 +28,6 @@ floating_layout_defaults = layout_defaults.copy()
 layouts = [
     # layout.Max(**layout_defaults),
     # layout.Plasma(),
-    # layout.Bsp(name="bsp",
-    #            ratio = 0.5,
-    #            border_on_single= True,
-    #            lower_right = True,
-    #            **layout_defaults,
-    #            ),
     # layout.Stack(num_stacks=2),
     # layout.Columns(),
     # layout.Matrix(),
@@ -46,12 +40,19 @@ layouts = [
                      max_ratio=0.75,
                      **layout_defaults
                      ),
+    layout.Bsp(name="bsp",
+               ratio = 0.5,
+               border_on_single= True,
+               lower_right = True,
+               **layout_defaults,
+               ),
+    layout.Spiral(**layout_defaults),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(name="Tile", **layout_defaults),
     # layout.TreeTab(),
     # layout.VerticalTile(),
-    # layout.Zoomy(),
+    # layout.Zoomy(**layout_defaults),
 ]
 
 floating_layout = layout.Floating(
@@ -70,6 +71,7 @@ floating_layout = layout.Floating(
         Match(wm_class="qalculate-qt"),
         Match(wm_class="copyq"),
         Match(wm_class="nitrogen"),
+        Match(wm_class="nemo-preview-start"),
     ],
     **floating_layout_defaults
 )
