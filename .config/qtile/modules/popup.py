@@ -8,70 +8,41 @@ from qtile_extras.popup.toolkit import (
 # import Path
 
 def show_power_menu(qtile):
-
-    controls = [
-        PopupImage(
-            filename="~/dotfiles/.config/qtile/images/reboot.png",
-            pos_x=0.15,
-            pos_y=0.1,
-            width=0.1,
-            height=0.5,
-            mouse_callbacks={"Button1": lazy.spawn("/.config/qtile/assets/reboot.sh"),},
-        ),
-        PopupImage(
-            filename="~/Downloads/3cx.png",
-            pos_x=0.45,
-            pos_y=0.1,
-            width=0.1,
-            height=0.5,
-            # mouse_callbacks={
-            #     "Button1": lazy.spawn("/path/to/sleep_cmd")
-            # }
-        ),
-        PopupImage(
-            filename="~/Downloads/3cx.png",
-            pos_x=0.75,
-            pos_y=0.1,
-            width=0.1,
-            height=0.5,
-            highlight="A00000",
-            mouse_callbacks={
-                "Button1": lazy.run("./shutdwon.sh")
-            }
-        ),
-        PopupText(
-            text="Reboot",
-            pos_x=0.1,
-            pos_y=0.7,
-            width=0.2,
-            height=0.2,
-            h_align="center"
-        ),
-        PopupText(
-            text="Sleep",
-            pos_x=0.4,
-            pos_y=0.7,
-            width=0.2,
-            height=0.2,
-            h_align="center"
-        ),
-        PopupText(
-            text="Shutdown",
-            pos_x=0.7,
-            pos_y=0.7,
-            width=0.2,
-            height=0.2,
-            h_align="center"
-        ),
-    ]
-
     layout = PopupRelativeLayout(
         qtile,
-        width=1000,
+        rows=2,
+        cols=3,
+        width=150,
         height=300,
-        controls=controls,
+        controls=[
+        PopupImage(
+            filename="~/dotfiles/.config/qtile/images/reboot.png",
+            pos_x=0.1,
+            pos_y=0,
+            width=0.8,
+            height=0.3,
+            mouse_callbacks={"Button1": lazy.spawn("./.config/qtile/helper/reboot.sh")},
+        ),
+        PopupImage(
+            filename="~/dotfiles/.config/qtile/images/sleep.png",
+            pos_x=0.1,
+            pos_y=0.33,
+            width=0.8,
+            height=0.3,
+            mouse_callbacks={"Button1": lazy.spawn("./.config/qtile/helper/test.sh")},
+        ),
+        PopupImage(
+            filename="~/dotfiles/.config/qtile/images/standby.png",
+            pos_x=0.1,
+            pos_y=0.66,
+            width=0.8,
+            height=0.3,
+            highlight="A00000",
+            mouse_callbacks={"Button1": lazy.spawn("./.config/qtile/helper/test.sh")},
+        ),
+    ],
         background="00000060",
         initial_focus=None,
     )
 
-    layout.show(centered=True)
+    layout.show(relative_to=3, relative_to_bar=True)

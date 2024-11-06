@@ -20,6 +20,7 @@ from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.popup.templates.mpris2 import COMPACT_LAYOUT
 from qtile_extras.widget.groupbox2 import GroupBoxRule
 from helper.colors import wp_colors
+from modules.popup import show_power_menu
 
 
 # --------------------------------------------------------
@@ -152,11 +153,18 @@ screens = [
                     filename='~/.config/qtile/images/standby_rotated.png',                    
                     scale=True,
                     padding=10,
-                    margin=4,       # Image Sitze
+                    margin=4,       # Image Size
                     mask=True,
                     colour=wp_colors[1],
+                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     **decorQ,
-                    ),             
+                    ),
+                widget.Spacer(length=5),
+                widget.CurrentLayoutIcon(
+                    padding=10,
+                    scale=0.65,
+                    **decor_grQ
+                    ),      
                 widget.Spacer(length=5),
                 widget.GroupBox2(
                     font='Font Awesome',
@@ -234,8 +242,11 @@ screens = [
                     **decor_trio
                     ),
                 widget.Spacer(),
-                widget.Systray(
-                    icon_size=23,
+                widget.StatusNotifier(
+                    icon_size=24,
+                    padding=6,
+                    icon_theme='Breeze',
+                    **decorQ
                     ),
                 widget.Sep(
                     foreground=wp_colors[3],
@@ -277,7 +288,7 @@ screens = [
                     foreground=wp_colors[7],
                     padding=10,
                     widgets=[                                              
-                        widget.PulseVolume(
+                        widget.PulseVolumeExtra(
                                 fontsize=16,
                                 fontshadow=wp_colors[0],
                                 font='Open Sans Bold',
@@ -335,7 +346,7 @@ screens = [
                     fontshadow=wp_colors[0],
                     font='Font Awesome',
                     text="  ",
-                    mouse_callbacks={"Button1": lazy.spawn("./.config/qtile/helper/power.sh")},
+                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     ),
             ],
             background="#30363f00",
@@ -460,8 +471,7 @@ screens = [
                     fontshadow=wp_colors[0],
                     font='Font Awesome',
                     text="  ",
-                    mouse_callbacks={"Button1": lazy.spawn("./.config/qtile/helper/power.sh")},
-                    # mouse_callbacks={"Button1": lazy.function(show_power_menu)},
+                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     ),                               
             ],
             background="#30363f00",
@@ -674,8 +684,7 @@ screens = [
                     fontshadow=wp_colors[0],
                     font='Font Awesome',
                     text="  ",
-                    mouse_callbacks={"Button1": lazy.spawn("./.config/qtile/helper/power.sh")},
-                    # mouse_callbacks={"Button1": lazy.function(show_power_menu)},
+                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
                     ),      
             ],
             background="#30363f00",
