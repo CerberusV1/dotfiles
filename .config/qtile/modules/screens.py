@@ -17,10 +17,10 @@ from libqtile.lazy import lazy
 from modules.popup import show_power_menu
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
-from qtile_extras.popup.templates.mpris2 import COMPACT_LAYOUT
+from qtile_extras.popup.templates.mpris2 import DEFAULT_LAYOUT
 from qtile_extras.widget.groupbox2 import GroupBoxRule
 from helper.colors import wp_colors
-from modules.popup import show_power_menu
+from modules.popup import show_power_menu, start_menu, VOLUME_NOTIFICATION, MPRIS_LAYOUT
 
 
 # --------------------------------------------------------
@@ -156,7 +156,7 @@ screens = [
                     margin=4,       # Image Size
                     mask=True,
                     colour=wp_colors[1],
-                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
+                    mouse_callbacks={"Button1": lazy.function(start_menu)},
                     **decorQ,
                     ),
                 widget.Spacer(length=5),
@@ -277,6 +277,17 @@ screens = [
                     ],
                     **decor_grQ
                     ),
+                widget.PulseVolumeExtra(
+                                fontsize=16,
+                                fontshadow=wp_colors[0],
+                                font='Open Sans Bold',
+                                format='  {volume}%',
+                                padding=10,
+                                mode='popup',
+                                popup_layout=VOLUME_NOTIFICATION,
+                                popup_show_args={'relative_to': 2, 'relative_to_bar': True, 'y': 5},
+                                **decor_grQ
+                                ),
                 HoverWidgetBox(
                     close_button_location='right',
                     font='Font Awesome',
@@ -288,7 +299,7 @@ screens = [
                     foreground=wp_colors[7],
                     padding=10,
                     widgets=[                                              
-                        widget.PulseVolumeExtra(
+                        widget.PulseVolume(
                                 fontsize=16,
                                 fontshadow=wp_colors[0],
                                 font='Open Sans Bold',
@@ -355,7 +366,7 @@ screens = [
         ),
     ),
 
-    # Screen 2 FHD 27"
+# Screen 3 FHD 24"
     Screen(
         top=bar.Bar(
             [
@@ -366,146 +377,21 @@ screens = [
                     adjust_y=1,
                     margin=4,       # Image Sitze
                     mask=True,
+                    mouse_callbacks={"Button1": lazy.function(start_menu)},
                     colour=wp_colors[1],
                     **decor,
                     ), 
-                widget.Spacer(length=3),
                 widget.GroupBox2(
-                                    font='Font Awesome',
-                                    fontshadow=wp_colors[0],
-                                    fontsize=20,
-                                    padding_x=8,
-                                    center_aligned=True,
-                                    visible_groups=['4', '5', '6'],
-                                    rules=get_groupbox_rules(monitor_specific=False),
-                                    **decor_gr
-                                ),
-                widget.Spacer(),
-                widget.Clock(
-                    font='Open Sans Bold',
-                    background=wp_colors[2],
-                    fontsize=16,
-                    fontshadow=wp_colors[0],
-                    padding=6,
-                    format="%d.%m.%y",
-                    **decor_trioS                         
-                    ),
-                widget.TextBox(
-                    text=" ",
-                    background=wp_colors[2],
-                    foreground=wp_colors[7],
-                    fontsize=16,
-                    fontshadow=wp_colors[0],
                     font='Font Awesome',
-                    **decor_trioS                    
-                    ),
-                widget.Sep(
-                    background=wp_colors[2],
-                    foreground=wp_colors[3],
-                    linewidth=2,
-                    size_percent=55,
-                    padding=8,
-                    **decor_trioS
-                    ),
-                widget.Clock(
-                    font='Open Sans Ultra-Bold',
-                    fontsize=24,
-                    fontshadow=wp_colors[0],
-                    background=wp_colors[2],
-                    format="%H:%M",
-                    **decor_trioS,
-                    ),
-                widget.Sep(
-                    background=wp_colors[2],
-                    foreground=wp_colors[3],
-                    linewidth=2,
-                    size_percent=55,
-                    padding=8,
-                    **decor_trioS
-                    ),
-                widget.TextBox(
-                    text="",
-                    fontsize=16,
-                    fontshadow=wp_colors[0],
-                    background=wp_colors[2],
-                    foreground=wp_colors[7],
-                    font='Font Awesome',
-                    **decor_trioS                    
-                    ),
-                widget.Wttr(
-                    font='Open Sans Bold',
-                    fontsize=16,
-                    padding=6,
-                    fontshadow=wp_colors[0],
-                    background=wp_colors[2],
-                    format='%t',
-                    **decor_trioS
-                    ),
-                widget.Spacer(),
-                widget.TextBox(
                     fontsize=18,
                     fontshadow=wp_colors[0],
-                    font='Font Awesome',
-                    padding=10,
-                    text="",   
-                    **decor_gr,                 
-                ),
-                widget.Mpris2(
-                    font='Open Sans Bold',
-                    fontsize=14,
-                    fontshadow=wp_colors[0],
-                    foreground=wp_colors[7],
-                    name="mpris2",
-                    width=200,
-                    scroll=True,
-                    scroll_clear=True,
-                    format='{xesam:title} - {xesam:artist}',
-                    padding=6,
-                    paused_text='{track}   ',
-                    popup_layout=COMPACT_LAYOUT,
-                    mouse_callback={'Button1': lazy.widget["mpris2"].popup(),},
+                    padding=8,
+                    center_aligned=True,
+                    highlight_method='text',
+                    visible_groups=['7', '8', '9'],
+                    rules=get_groupbox_rules(monitor_specific=False),
                     **decor_gr
                     ),
-                widget.TextBox(
-                    fontsize=24,
-                    fontshadow=wp_colors[0],
-                    font='Font Awesome',
-                    text="  ",
-                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
-                    ),                               
-            ],
-            background="#30363f00",
-            size=28,
-            margin=[5, 5, 0, 5],
-        ),
-
-    ),
-
-    # Screen 3 FHD 24"
-    Screen(
-        top=bar.Bar(
-            [
-                widget.Image(
-                    filename='~/.config/qtile/images/standby_rotated.png',                    
-                    scale=True,
-                    adjust_x=6,
-                    adjust_y=1,
-                    margin=4,       # Image Sitze
-                    mask=True,
-                    colour=wp_colors[1],
-                    **decor,
-                    ), 
-                widget.GroupBox2(
-                                    font='Font Awesome',
-                                    fontsize=18,
-                                    fontshadow=wp_colors[0],
-                                    padding=8,
-                                    center_aligned=True,
-                                    visible_groups=['7', '8', '9'],
-                                    highlight_method='text',
-                                    rules=get_groupbox_rules(monitor_specific=False),
-                                    **decor_gr
-                                ),
                 widget.Spacer(),
                 widget.Clock(
                     font='Open Sans Bold',
@@ -693,6 +579,136 @@ screens = [
         ),
     ),
 
+
+    # Screen 2 FHD 27"
+    Screen(
+        top=bar.Bar(
+            [
+                widget.Image(
+                    filename='~/.config/qtile/images/standby_rotated.png',                    
+                    scale=True,
+                    adjust_x=6,
+                    adjust_y=1,
+                    margin=4,       # Image Sitze
+                    mask=True,
+                    mouse_callbacks={"Button1": lazy.function(start_menu)},
+                    colour=wp_colors[1],
+                    **decor,
+                    ), 
+                widget.Spacer(length=3),
+                widget.GroupBox2(
+                                    font='Font Awesome',
+                                    fontshadow=wp_colors[0],
+                                    fontsize=20,
+                                    padding_x=8,
+                                    center_aligned=True,
+                                    visible_groups=['4', '5', '6'],
+                                    rules=get_groupbox_rules(monitor_specific=False),
+                                    **decor_gr
+                                ),
+                widget.Spacer(),
+                widget.Clock(
+                    font='Open Sans Bold',
+                    background=wp_colors[2],
+                    fontsize=16,
+                    fontshadow=wp_colors[0],
+                    padding=6,
+                    format="%d.%m.%y",
+                    **decor_trioS                         
+                    ),
+                widget.TextBox(
+                    text=" ",
+                    background=wp_colors[2],
+                    foreground=wp_colors[7],
+                    fontsize=16,
+                    fontshadow=wp_colors[0],
+                    font='Font Awesome',
+                    **decor_trioS                    
+                    ),
+                widget.Sep(
+                    background=wp_colors[2],
+                    foreground=wp_colors[3],
+                    linewidth=2,
+                    size_percent=55,
+                    padding=8,
+                    **decor_trioS
+                    ),
+                widget.Clock(
+                    font='Open Sans Ultra-Bold',
+                    fontsize=24,
+                    fontshadow=wp_colors[0],
+                    background=wp_colors[2],
+                    format="%H:%M",
+                    **decor_trioS,
+                    ),
+                widget.Sep(
+                    background=wp_colors[2],
+                    foreground=wp_colors[3],
+                    linewidth=2,
+                    size_percent=55,
+                    padding=8,
+                    **decor_trioS
+                    ),
+                widget.TextBox(
+                    text="",
+                    fontsize=16,
+                    fontshadow=wp_colors[0],
+                    background=wp_colors[2],
+                    foreground=wp_colors[7],
+                    font='Font Awesome',
+                    **decor_trioS                    
+                    ),
+                widget.Wttr(
+                    font='Open Sans Bold',
+                    fontsize=16,
+                    padding=6,
+                    fontshadow=wp_colors[0],
+                    background=wp_colors[2],
+                    format='%t',
+                    **decor_trioS
+                    ),
+                widget.Spacer(),
+                widget.TextBox(
+                    fontsize=18,
+                    fontshadow=wp_colors[0],
+                    font='Font Awesome',
+                    padding=10,
+                    text="",   
+                    **decor_gr,                 
+                ),
+                widget.Mpris2(
+                    font='Open Sans Bold',
+                    fontsize=14,
+                    fontshadow=wp_colors[0],
+                    foreground=wp_colors[7],
+                    name="mpris2",
+                    width=200,
+                    scroll=True,
+                    scroll_clear=True,
+                    format='{xesam:title} - {xesam:artist}',
+                    padding=6,
+                    paused_text='{track}   ',
+                    # popup_layout=MPRIS_LAYOUT,
+                    popup_show_args={'relative_to': 3, 'relative_to_bar': True, 'y': 5, 'x': -5},
+                    mouse_callbacks={'Button1': lazy.widget["mpris2"].toggle_player()},
+                    **decor_gr
+                    ),
+                widget.TextBox(
+                    fontsize=24,
+                    fontshadow=wp_colors[0],
+                    font='Font Awesome',
+                    text="  ",
+                    mouse_callbacks={"Button1": lazy.function(show_power_menu)},
+                    ),                               
+            ],
+            background="#30363f00",
+            size=28,
+            margin=[5, 5, 0, 5],
+        ),
+
+    ),
+
+    
 ]
 
 

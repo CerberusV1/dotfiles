@@ -55,10 +55,10 @@ def go_to_group(name: str):
             qtile.focus_screen(0)
             qtile.groups_map[name].toscreen()
         elif name in '456':
-            qtile.focus_screen(1)
+            qtile.focus_screen(2)
             qtile.groups_map[name].toscreen()
         else:
-            qtile.focus_screen(2)
+            qtile.focus_screen(1)
             qtile.groups_map[name].toscreen()    
 
     return _inner
@@ -82,11 +82,11 @@ def go_to_group_and_move_window(name: str):
             qtile.groups_map[name].toscreen()
         elif name in "456":
             qtile.current_window.togroup(name, switch_group=False)
-            qtile.focus_screen(1)
+            qtile.focus_screen(2)
             qtile.groups_map[name].toscreen()
         else:
             qtile.current_window.togroup(name, switch_group=False)
-            qtile.focus_screen(2)
+            qtile.focus_screen(1)
             qtile.groups_map[name].toscreen()
 
     return _inner
