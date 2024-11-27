@@ -12,6 +12,9 @@
 # Autostart Services
 # -----------------------------------------------------
 
+# Configure Screen Layout
+$HOME/dotfiles/.config/qtile/helper/screens.sh
+
 # Load notification service
 dunst &
 
@@ -21,6 +24,8 @@ gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 
 # Set Wallpaper after restart
 nitrogen --restore &
+
+qtile cmd-obj -o cmd -f restart
 
 # Load Clipboardmanager
 copyq &
