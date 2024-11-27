@@ -5,7 +5,7 @@ mouse = Controller()
 
 try:
     while True:
-        mouse.click(Button.right, 3)  # Simulates left-click
+        mouse.click(Button.left, 2)  # Simulates left-click
         time.sleep(0.1)              # Adjust the interval
 except KeyboardInterrupt:
     print("Autoclicker stopped.")
