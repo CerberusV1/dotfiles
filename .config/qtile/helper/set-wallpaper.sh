@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# Öffne Nitrogen zur Auswahl eines neuen Wallpapers
+# Use: start script -> select wp -> close nitrogen
+# Attention: short delay caused by Qtile reload
+
+# Opens Nitrogen to select the wallpaper
 nitrogen
 
 # Get path of set wallpaper from first monitor which provides the color scheme
@@ -17,4 +20,5 @@ fi
 # Restart Qtile to apply colors
 qtile cmd-obj -o cmd -f restart
 
+# Update Firefox-Theme
 pywalfox update

@@ -12,8 +12,6 @@
 # --------------------------------------------------------------------
 from libqtile import hook, qtile
 
-
-
 import subprocess
 import os.path
 
@@ -26,8 +24,7 @@ def autostart():
     autostartscript = "~/.config/qtile/helper/autostart.sh"
     home = os.path.expanduser(autostartscript)
     subprocess.Popen([home])
-    qtile.to_screen(1)
-    qtile.spawn("firefox")
+  
     
 
 @hook.subscribe.client_new
@@ -36,13 +33,3 @@ def move_bitwarden_to_current(client):
         client.togroup(qtile.current_group.name)
         client.group.toscreen(toggle=False)
 
-
-
-# @hook.subscribe.startup_once
-# def autostart():
-#     autostartscript = "~/.config/qtile/helper/autostart.sh"
-#     home = os.path.expanduser(autostartscript)
-#     subprocess.Popen([home])
-#     from libqtile import qtile
-#     qtile.to_screen(1)
-#     qtile.spawn("firefox")

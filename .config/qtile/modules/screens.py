@@ -466,20 +466,6 @@ screens = [
                     padding=4,
                     **decor_gr
                 ),
-                widget.NvidiaSensors(
-                    font='Open Sans Bold',
-                    fontsize=16,
-                    fontshadow=wp_colors[0],
-                    format='GPU: {temp}°C',
-                    **decor_gr
-                    ),
-                widget.Sep(
-                    foreground=wp_colors[3],
-                    linewidth=2,
-                    size_percent=55,
-                    padding=4,
-                    **decor_gr
-                ),
                 widget.Memory(
                     font='Open Sans Bold',
                     fontsize=16,
@@ -540,7 +526,7 @@ screens = [
                         fontsize=14,
                         foreground=wp_colors[7],
                         measure='G',
-                        partition='/run/media/cerberus/HDD',
+                        partition='/run/media/cerberus/Vault',
                         format='HDD: {r:.0f}%',                    
                         visible_on_warn=False,
                         **decor_gr
@@ -558,7 +544,7 @@ screens = [
                         foreground=wp_colors[7],
                         measure='G',
                         partition='/run/media/cerberus/VM_Storage',
-                        format='VM: {r:.0f}%',                    
+                        format='VM: {r:.0f}%  ',                    
                         visible_on_warn=False,
                         **decor_gr
                         ),    

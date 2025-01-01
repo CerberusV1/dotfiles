@@ -13,11 +13,11 @@
 # -----------------------------------------------------
 
 # Configure Screen Layout
-$HOME/dotfiles/.config/qtile/helper/screens.sh
+$HOME/dotfiles/.config/qtile/helper/screens.sh &
 
 # Load notification service
 dunst &
-
+picom &
 # Load polkit agent
 gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
@@ -44,6 +44,8 @@ flameshot &
 # Load discord
 discord &
 
+firefox &
+
 # Start steam in systray
 steam -silent &
 
@@ -51,7 +53,7 @@ steam -silent &
 # picom not to start because qtile was not loaded properly.
 # The sleep interrupt also fixes that firefox doesn´t render since it now has more time to load
 # Load picom
-(sleep 2 && picom) &
+# (sleep 2 && picom) &
 
 
 
